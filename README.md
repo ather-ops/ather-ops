@@ -1,33 +1,23 @@
+# Ather Assadullah — ML/AI Engineer · RAG Systems · LLM Applications · Agentic AI
+
 <div align="center">
 
-# Ather Assadullah
-### ML/AI Engineer · RAG Systems · LLM Applications · Agentic AI
-
 <table>
-<tr>
-<td width="370">
-
-![ASCII Portrait](./avi-ascii.svg)
-
-</td>
-<td width="490">
-
-![Info Card](./info-card.svg)
-
-</td>
-</tr>
+  <tr>
+    <td align="center" width="370">
+      <img src="avi-ascii.svg" width="370" alt="Portrait"/>
+    </td>
+    <td align="center" width="490">
+      <img src="info-card.svg" width="490" alt="Info Card"/>
+    </td>
+  </tr>
 </table>
 
----
+<img src="contrib-heatmap.svg" width="1000" alt="Contribution Graph"/>
 
-![Contribution Heatmap](./contrib-heatmap.svg)
-
----
-
-### 🔗 Connect
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/ather-assadullah)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/ather-ops)
-[![CineSense AI](https://img.shields.io/badge/CineSense_AI-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://cinesense-ai-v1.streamlit.app)
+**Connect**  
+[LinkedIn](https://linkedin.com/in/ather-assadullah) · 
+[GitHub](https://github.com/ather-ops) · 
+[CineSense AI](https://cinesense-ai-v1.streamlit.app)
 
 </div>
