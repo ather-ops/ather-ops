@@ -2,7 +2,7 @@
 
 **ML / AI Engineer · RAG Systems · Agentic AI · Self-Taught**
 
-Bangalore / Remote · Open to AI/ML Internships & Remote Roles
+Open to AI/ML Internships & Remote Roles
 
 ---
 
@@ -38,9 +38,9 @@ My GitHub is my degree.
 
 ### Stack
 
-Python · NumPy · Scikit-learn · ChromaDB · LangGraph · FastAPI
+Python · NumPy · Scikit-learn · ChromaDB · LangChain · FastAPI
 Gemini 2.5 Flash · SentenceTransformers · HuggingFace · Streamlit · AWS
-
+SQL - SQLDB - FAISS - RAG - LLM - Neural Networks - GROQ 
 ---
 
 ### Connect
