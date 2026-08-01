@@ -13,7 +13,6 @@ No shortcuts. No abstractions I haven't understood at the layer beneath.
 
 Shipped Xpect AI — semantic search over 8,800+ titles — in 15 days.
 Qualified in the top 23% of 1,34,421 applicants for Amazon ML Summer School 2026.
-My GitHub is my degree.
 
 ---
 
