@@ -40,6 +40,7 @@ Qualified in the top 23% of 1,34,421 applicants for Amazon ML Summer School 2026
 Python · NumPy · Scikit-learn · ChromaDB · LangChain · FastAPI
 Gemini 2.5 Flash · SentenceTransformers · HuggingFace · Streamlit · AWS
 SQL - SQLDB - FAISS - RAG - LLM - Neural Networks - GROQ 
+
 ---
 
 ### Connect
