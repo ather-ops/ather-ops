@@ -46,6 +46,6 @@ SQL - SQLDB - FAISS - RAG - LLM - Neural Networks - GROQ
 ### Connect
 
 [LinkedIn](https://linkedin.com/in/ather-assadullah-164492301) ·
-[Portfolio](https://portofolio-eight-fawn.vercel.app) ·
+[Portfolio](https://portfolio-two-pink-24.vercel.app/) ·
 [X](https://x.com/PeerAther47970) ·
 [Email](mailto:peerather07@gmail.com)
