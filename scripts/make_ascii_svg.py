@@ -24,18 +24,17 @@ OUT      = "avi-ascii.svg"
 W        = 370    # rendered width of the portrait canvas  (README uses width=370)
 H        = 460    # rendered height; keep == info card H so the table matches
 
-COLS     = 100    # ASCII columns of detail (higher = finer/more detail)
+COLS     = 150    # ASCII columns of detail (higher = finer/more detail)
 CHAR_ASPECT = 0.5 # monospace glyph width:height ratio
 TOP      = 0.0    # top padding as a fraction of H
 
 GLYPH    = "#1f2937"  # single monochrome glyph color (dark slate on white)
 BG       = "none"     # transparent background -> blank page around subject
 
-GAMMA     = 1.00   # brightness curve
-CONTRAST  = 1.30   # 1.0 = neutral; higher punches highlights/shadows
-WHITE_FLOOR = 0.12 # luminance below this compresses to black (kills background noise)
-MIDTONE_LIFT = 0.30 # lift the bright face toward light so it separates from the dark
-                    # hair/shirt in a photo-realistic (dark=ink) portrait
+GAMMA     = 0.55   # <1 = brighten shadows so the dark shirt reads as fabric, not a block
+CONTRAST  = 1.60   # 1.0 = neutral; higher punches highlights/shadows
+WHITE_FLOOR = 0.08 # luminance below this compresses to black (kills background noise)
+MIDTONE_LIFT = 0.30 # lift the lit face so it separates from the dark hair/shirt
 INVERT    = False  # photo-realistic: darker areas -> denser ink (accurate portrait)
 
 # typing animation
@@ -49,7 +48,7 @@ RAMP     = "@%#*+=-:. "   # dense -> sparse a single color; density does the sha
 AUTO_CROP  = True
 CROP_PAD   = 0.03   # fraction of the subject size to keep around the figure
 ALPHA_MIN  = 8      # pixel alpha considered "part of the subject"
-FOCUS_TOP  = 0.52   # keep top 52%: prominent head-and-shoulders, face large
+FOCUS_TOP  = 0.62   # keep top 62%: head-and-shoulders bust, face large
 FIT_TO_FRAME = True # crop to W/H aspect so the figure fills the whole canvas
 # ------------------------------------------------------------------ /config
 
