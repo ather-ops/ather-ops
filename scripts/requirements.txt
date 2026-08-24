@@ -1,0 +1,4 @@
+# Dependencies the daily workflow needs (scraper + renderer only).
+# Not the heavy image-prep stack -- that runs locally once.
+requests>=2.31.0
+beautifulsoup4>=4.12.0

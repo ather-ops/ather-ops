@@ -15,6 +15,19 @@
 
 </div>
 
+<table>
+  <tr>
+    <td align="center" valign="top">
+      <img src="avi-ascii.svg" width="370" alt="ASCII portrait of Ather" />
+    </td>
+    <td align="center" valign="top">
+      <img src="info-card.svg" width="490" alt="Ather's info card" />
+    </td>
+  </tr>
+</table>
+
+
+
 ---
 
 ## About Me
@@ -106,11 +119,16 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 <img height="165" src="https://github-readme-stats.vercel.app/api?username=ather-ops&show_icons=true&theme=default&hide_border=true&count_private=true" />
 <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ather-ops&layout=compact&hide_border=true&theme=default" />
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=ather-ops&hide_border=true&theme=default" />
-
 </div>
 
 ---
+
+## Recent Activity
+
+<!-- Live contribution graph, refreshed daily by GitHub Actions -->
+<p align="center">
+  <img src="contrib-heatmap.svg" alt="Contribution graph" />
+</p>
 
 ## Key Achievements
 

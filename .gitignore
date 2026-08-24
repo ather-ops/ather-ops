@@ -1,0 +1,14 @@
+# One-time local image artifacts (regenerable via scripts)
+source-prepped.png
+# rembg model cache (large, downloaded on first run)
+.rembg/
+# python / os noise
+__pycache__/
+*.pyc
+.DS_Store
+# caches
+.cache/
+.npm/
+
+# Workflow added via GitHub UI to avoid needing the 'workflow' token scope
+.github/workflows/update-profile-art.yml

@@ -1,0 +1,6 @@
+# One-time local image prep (run on your machine, not in the workflow).
+pillow>=10.0.0
+numpy>=1.26.0
+opencv-python>=4.9.0
+rembg[cpu]>=2.0.50
+onnxruntime>=1.16.0
