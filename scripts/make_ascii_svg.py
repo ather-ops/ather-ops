@@ -33,9 +33,9 @@ BOTTOM   = 0.04   # bottom padding as a fraction of H
 GLYPH    = "#1f2937"  # single monochrome glyph color (dark slate so it reads on white)
 BG       = "none"     # transparent background -> blank page around subject
 
-GAMMA     = 0.85   # <1 = brighter midtones, >1 = darker
-CONTRAST  = 1.75   # 1.0 = neutral; higher punches highlights/shadows
-WHITE_FLOOR = 0.06 # luminance below this compresses to black (kills background noise)
+GAMMA     = 0.45   # <1 = brighter midtones; lifts the lit face off the dark shirt
+CONTRAST  = 1.20   # 1.0 = neutral; higher punches highlights/shadows
+WHITE_FLOOR = 0.10 # luminance below this compresses to black (kills background noise)
 
 # animation
 ROW_DUR  = 1.6    # seconds to fully type a single line
@@ -101,49 +101,57 @@ def autocrop(img):
 
 def luminance_grid(img, rows, cols):
     """
-    Return an (rows, cols) luminance grid 0..1 fitting the (auto-cropped,
-    transparent-bg) image into the box. Transparent cells are set to 0 (blank).
+    Build a (rows, cols) grid of the subject ALPHA MASK (1 = subject, 0 = space)
+    and the subject LUMINANCE 0..1 over the W x H box (contain-fit, centered).
+    Background cells are luminance 0 so they render blank (space).
     """
-    # Composite the subject onto WHITE so removed background becomes blank (space),
-    # and dark subject features become dense glyphs. out = gray*alpha + (1-alpha)
-    if img.mode == "RGBA":
-        alpha = np.asarray(img.getchannel("A"), dtype=np.float32) / 255.0
-        gray = np.asarray(img.convert("RGB").convert("L"), dtype=np.float32) / 255.0
-        a = gray * alpha + (1.0 - alpha)      # white shows through transparency
-        img = Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8))
+    if img.mode != "RGBA":
+        img = img.convert("RGBA")
+    alpha = np.asarray(img.getchannel("A"), dtype=np.float32) / 255.0
+    gray = np.asarray(img.convert("RGB").convert("L"), dtype=np.float32) / 255.0
     iw, ih = img.size
-    # contain-fit the image inside the W x H box, preserving aspect ratio
+    # contain-fit inside the W x H box, preserving aspect ratio
     scale = min(W / iw, H / ih)
     nw, nh = max(1, int(round(iw * scale))), max(1, int(round(ih * scale)))
-    # Contain-fit (preserve aspect) inside a W x H canvas, centered, letterboxed.
-    scale = min(W / iw, H / ih)
-    nw, nh = max(1, int(round(iw * scale))), max(1, int(round(ih * scale)))
-    img = img.resize((nw, nh), Image.LANCZOS)
-    # paste centered onto a W x H white canvas
-    canvas = Image.new("L", (W, H), 255)
-    canvas.paste(img, ((W - nw) // 2, (H - nh) // 2))
-    a = np.asarray(canvas, dtype=np.float32) / 255.0
-    # downsample the W x H canvas to a rows x cols cell grid
+    # resize alpha and gray together (same fit), then paste centered on a blank canvas
+    a_res = np.asarray(Image.fromarray((alpha * 255).astype(np.uint8)).resize((nw, nh), Image.LANCZOS), dtype=np.float32) / 255.0
+    g_res = np.asarray(Image.fromarray((gray * 255).astype(np.uint8)).resize((nw, nh), Image.LANCZOS), dtype=np.float32) / 255.0
+
+    canv_a = np.zeros((H, W), dtype=np.float32)
+    canv_g = np.zeros((H, W), dtype=np.float32)
+    oy, ox = (H - nh) // 2, (W - nw) // 2
+    canv_a[oy:oy + nh, ox:ox + nw] = a_res
+    canv_g[oy:oy + nh, ox:ox + nw] = g_res
+
+    # downsample canvas to rows x cols grid
     ys = np.clip((np.arange(rows) + 0.5) * H / rows, 0, H - 1).astype(int)
     xs = np.clip((np.arange(cols) + 0.5) * W / cols, 0, W - 1).astype(int)
-    return a[np.ix_(ys, xs)]
+    mask = canv_a[np.ix_(ys, xs)]
+    lum = canv_g[np.ix_(ys, xs)]
+    # Only keep the subject's luminance; everything outside the mask is blank (0).
+    lum = np.where(mask > 0.5, lum, 0.0)
+    return lum, (mask > 0.5)
 
 
 def process(lum):
-    """Apply WHITE_FLOOR / GAMMA / CONTRAST -> indices into RAMP."""
-    # Normalize so the darkest subject pixel maps to 0 and the whitest to 1.
+    """
+    Map subject luminance 0..1 to glyph indices into RAMP (dark -> dense ink).
+    Cells already flagged as background (lum==0) are set to index = len(RAMP)-1
+    so they render as a clean space.
+    """
     lo, hi = lum.min(), lum.max()
     if hi - lo > 1e-6:
         lum = (lum - lo) / (hi - lo)
-    # WHITE_FLOOR: crush values below this to 0 (blank). Keeps the background pristine.
+    # keep default = a space glyph for empty/background cells
+    space_idx = len(RAMP) - 1
+    blank = lum <= 0.0
     lum = np.clip((lum - WHITE_FLOOR) / (1.0 - WHITE_FLOOR), 0, 1)
     lum = np.power(lum, GAMMA)
     lum = (lum - 0.5) * CONTRAST + 0.5
     lum = np.clip(lum, 0, 1)
     idx = (lum * (len(RAMP) - 1) + 0.5).astype(int)
     idx = np.clip(idx, 0, len(RAMP) - 1)
-    # Only leave dark cells as actual glyphs; the blank background stays ' '.
-    # Here we map index 0 -> space so the page background stays clean.
+    idx[blank] = space_idx
     return idx, lum
 
 
@@ -157,7 +165,7 @@ def build():
     img = Image.open(SOURCE)
     if AUTO_CROP:
         img = autocrop(img)
-    lum = luminance_grid(img, rows, COLS)
+    lum, mask = luminance_grid(img, rows, COLS)
     idx, _ = process(lum)
 
     fh = H / rows                      # glyph height (font-size)
@@ -167,7 +175,7 @@ def build():
 
     lines = []
     for r in range(rows):
-        line = "".join(RAMP[i] if i > 0 else " " for i in idx[r])
+        line = "".join(RAMP[i] if mask[r][c] else " " for c, i in enumerate(idx[r]))
         lines.append(line)
 
     # static? then just emit full text, no animation
