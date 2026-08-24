@@ -24,16 +24,19 @@ OUT      = "avi-ascii.svg"
 W        = 370    # rendered width of the portrait canvas  (README uses width=370)
 H        = 460    # rendered height; keep == info card H so the table matches
 
-COLS     = 120    # ASCII columns of detail (higher = finer/more detail)
+COLS     = 100    # ASCII columns of detail (higher = finer/more detail)
 CHAR_ASPECT = 0.5 # monospace glyph width:height ratio
 TOP      = 0.0    # top padding as a fraction of H
 
 GLYPH    = "#1f2937"  # single monochrome glyph color (dark slate on white)
 BG       = "none"     # transparent background -> blank page around subject
 
-GAMMA     = 0.45   # <1 = brighter midtones; lifts the lit face off the dark shirt
-CONTRAST  = 1.20   # 1.0 = neutral; higher punches highlights/shadows
-WHITE_FLOOR = 0.10 # luminance below this compresses to black (kills background noise)
+GAMMA     = 1.00   # brightness curve
+CONTRAST  = 1.30   # 1.0 = neutral; higher punches highlights/shadows
+WHITE_FLOOR = 0.12 # luminance below this compresses to black (kills background noise)
+MIDTONE_LIFT = 0.30 # lift the bright face toward light so it separates from the dark
+                    # hair/shirt in a photo-realistic (dark=ink) portrait
+INVERT    = False  # photo-realistic: darker areas -> denser ink (accurate portrait)
 
 # typing animation
 ROW_DUR    = 0.55   # seconds to type a single line
@@ -46,7 +49,7 @@ RAMP     = "@%#*+=-:. "   # dense -> sparse a single color; density does the sha
 AUTO_CROP  = True
 CROP_PAD   = 0.03   # fraction of the subject size to keep around the figure
 ALPHA_MIN  = 8      # pixel alpha considered "part of the subject"
-FOCUS_TOP  = 0.72   # keep top 72% (full head + shoulders) of the subject's height
+FOCUS_TOP  = 0.52   # keep top 52%: prominent head-and-shoulders, face large
 FIT_TO_FRAME = True # crop to W/H aspect so the figure fills the whole canvas
 # ------------------------------------------------------------------ /config
 
@@ -125,7 +128,12 @@ def luminance_grid(img, rows, cols):
 
 
 def process(lum):
-    """Map subject luminance 0..1 to glyph indices (dark -> dense ink)."""
+    """
+    Map subject luminance 0..1 to glyph indices into RAMP.
+    - INVERT=False: dark -> dense ink (standard).
+    - INVERT=True : bright -> dense ink (for a bright face on a dark shirt, so
+                    the face/hair read as the portrait instead of a dark block).
+    """
     lo, hi = lum.min(), lum.max()
     if hi - lo > 1e-6:
         lum = (lum - lo) / (hi - lo)
@@ -135,6 +143,13 @@ def process(lum):
     lum = np.power(lum, GAMMA)
     lum = (lum - 0.5) * CONTRAST + 0.5
     lum = np.clip(lum, 0, 1)
+    # MIDTONE_LIFT keeps the lit face (a light region) from collapsing into the
+    # dark shirt/hair, so the face reads clearly in a photo-realistic portrait.
+    if MIDTONE_LIFT:
+        lum = MIDTONE_LIFT + (1.0 - MIDTONE_LIFT) * lum
+        lum = np.clip(lum, 0, 1)
+    if INVERT:
+        lum = 1.0 - lum
     idx = (lum * (len(RAMP) - 1) + 0.5).astype(int)
     idx = np.clip(idx, 0, len(RAMP) - 1)
     idx[blank] = space_idx
