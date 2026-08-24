@@ -1,43 +1,51 @@
+<!-- Ather Assadullah Peer (@ather-ops) — monochrome animated profile -->
+<!-- All motion lives inside self-hosted SVGs in this repo, so nothing 404s. -->
+
+# Ather Assadullah Peer
+
 <div align="center">
 
-# Hi, I'm Ather Assadullah Peer
-
 ### Machine Learning Engineer · RAG Systems · Agentic AI · LLM Application Development
-**Self-taught. Production-focused. Open to AI/ML Internships & Remote Roles.**
 
-<br>
+**Self-taught · Production-focused · Open to AI/ML roles worldwide**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ather-assadullah-164492301)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-two-pink-24.vercel.app/)
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/PeerAther47970)
-[![Gmail](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:peerather07@gmail.com)
-[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-1f2937?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-two-pink-24.vercel.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-334155?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ather-assadullah-164492301)
+[![X](https://img.shields.io/badge/X-0f172a?style=for-the-badge&logo=x&logoColor=white)](https://x.com/PeerAther47970)
+[![Email](https://img.shields.io/badge/Email-475569?style=for-the-badge&logo=gmail&logoColor=white)](mailto:peerather07@gmail.com)
+[![LeetCode](https://img.shields.io/badge/LeetCode-64748b?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/)
 
 </div>
 
+---
+
 <table>
  <tr>
+ <!-- Monochrome portrait that reveals itself on load -->
  <td align="center" valign="top">
- <img src="avi-ascii.svg" width="370" alt="ASCII portrait of Ather" />
+ <img src="photo-reveal.svg" width="370" alt="Portrait of Ather Assadullah Peer" />
  </td>
+ <!-- Neofetch-style info panel -->
  <td align="center" valign="top">
  <img src="info-card.svg" width="490" alt="Ather's info card" />
  </td>
  </tr>
 </table>
 
+<div align="center">
 
+[![Contributions](https://img.shields.io/badge/Activity-1f2937?style=flat-square&logo=github&logoColor=white)](#) 
 
----
+</div>
 
 ## About Me
 
-Self-taught AI/ML engineer building **production RAG systems**, **agentic pipelines**, and **ML algorithms from mathematical first principles**. No shortcuts. No abstractions I haven't understood at the layer beneath.
+Self-taught AI/ML engineer building **production RAG systems**, **agentic pipelines**, and **ML algorithms from mathematical first principles** — no shortcuts, no abstractions I haven't understood at the layer beneath.
 
-- Shipped **Xpect AI** — a production RAG semantic search engine over 8,800+ titles — in **15 days**, concept to live deployment.
-- Qualified in the **top 23% of 1,34,421 applicants** for **Amazon ML Summer School 2026** — cleared CV + SOP rounds with no college degree at time of application.
+- **Shipped [Xpect AI](https://cinesense-ai-v1.streamlit.app)** — a production RAG semantic search engine over 8,800+ titles — in **15 days**, concept to live deployment.
+- **Qualified in the top 23% of 1,34,421 applicants** for **Amazon ML Summer School 2026** — cleared CV + SOP rounds with no college degree at time of application.
 - Implement ML algorithms (gradient descent, backpropagation, ensemble methods) **from scratch in NumPy**, validated line-by-line against library implementations.
-- Based in Bangalore, India — open to remote roles worldwide.
+- Based in **Bangalore, India** — open to remote roles worldwide.
 
 ---
 
@@ -77,13 +85,12 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 ---
 
-## Currently
+## Recent Activity
 
-- DSA — GFG full course (Arrays through Dynamic Programming)
-- Supervised ML — implementing every algorithm from scratch
-- AWS deployment pipelines (EC2, S3, Lambda)
-- LangGraph multi-agent systems
-- System Design — HLD/LLD for FAANG-track interviews
+<!-- Live contribution graph, refreshed daily by GitHub Actions -->
+<p align="center">
+ <img src="contrib-heatmap.svg" alt="Ather's contribution graph" />
+</p>
 
 ---
 
@@ -91,18 +98,18 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
-![Scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
-![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black)
-![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![Python](https://img.shields.io/badge/Python-0f172a?style=flat-square&logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-1e293b?style=flat-square&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-1f2937?style=flat-square&logo=pandas&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/scikit--learn-334155?style=flat-square&logo=scikit-learn&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-334155?style=flat-square&logo=postgresql&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-334155?style=flat-square&logo=mysql&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-1f2937?style=flat-square&logo=fastapi&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-334155?style=flat-square&logo=streamlit&logoColor=white)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-0f172a?style=flat-square&logo=huggingface&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1f2937?style=flat-square&logo=langchain&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-1e293b?style=flat-square&logo=amazonaws&logoColor=white)
+![Git](https://img.shields.io/badge/Git-334155?style=flat-square&logo=git&logoColor=white)
 
 **RAG & LLM:** ChromaDB · FAISS · Gemini 2.5 Flash · SentenceTransformers · Prompt Engineering · Cosine Similarity
 **Agentic AI:** LangGraph · smolagents · ReAct Agents · Multi-Agent Orchestration
@@ -116,19 +123,12 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=ather-ops&show_icons=true&theme=default&hide_border=true&count_private=true" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ather-ops&layout=compact&hide_border=true&theme=default" />
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=ather-ops&show_icons=true&theme=transparent&hide_border=true&count_private=true" />
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ather-ops&layout=compact&theme=transparent&hide_border=true" />
 
 </div>
 
 ---
-
-## Recent Activity
-
-<!-- Live contribution graph, refreshed daily by GitHub Actions -->
-<p align="center">
- <img src="contrib-heatmap.svg" alt="Contribution graph" />
-</p>
 
 ## Key Achievements
 
@@ -150,6 +150,6 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 <br>
 
-**peerather07@gmail.com** · Bangalore, India · Open to Remote
+ **peerather07@gmail.com** · Bangalore, India · Open to Remote
 
 </div>
