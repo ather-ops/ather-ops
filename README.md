@@ -119,17 +119,6 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 ---
 
-## GitHub Stats
-
-<div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=ather-ops&show_icons=true&theme=transparent&hide_border=true&count_private=true" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ather-ops&layout=compact&theme=transparent&hide_border=true" />
-
-</div>
-
----
-
 ## Key Achievements
 
 - **Amazon ML Summer School 2026** — Top 23% of 1,34,421 applicants nationwide (CV + SOP rounds), without a college degree at time of application
