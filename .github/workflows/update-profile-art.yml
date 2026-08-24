@@ -1,0 +1,44 @@
+name: Update profile art
+
+on:
+  schedule:
+    - cron: "30 0 * * *"   # daily at 00:30 UTC
+  workflow_dispatch: {}     # allow manual trigger from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-art:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install scraper dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Fetch contributions
+        env:
+          GH_PROFILE_USER: ather-ops
+        run: python scripts/fetch_contributions.py
+
+      - name: Render contribution graph
+        run: python scripts/render_heatmap_svg.py
+
+      - name: Commit updated graph
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/contributions.json contrib-heatmap.svg
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: refresh contribution graph"
+            git push
+          fi

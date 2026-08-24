@@ -9,6 +9,4 @@ __pycache__/
 # caches
 .cache/
 .npm/
-
 # Workflow added via GitHub UI to avoid needing the 'workflow' token scope
-.github/workflows/update-profile-art.yml
