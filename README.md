@@ -38,6 +38,22 @@
 
 </div>
 
+---
+
+## Contribution
+
+<!-- Live contribution heatmap, refreshed daily by GitHub Actions -->
+<p align="center">
+ <img src="contrib-heatmap.svg" alt="Ather's contribution graph" />
+</p>
+
+<!-- Live day-streak graph, refreshed daily by GitHub Actions -->
+<p align="center">
+ <img src="streak-graph.svg" alt="Ather's day streak graph" />
+</p>
+
+---
+
 ## About Me
 
 Self-taught AI/ML engineer building **production RAG systems**, **agentic pipelines**, and **ML algorithms from mathematical first principles** — no shortcuts, no abstractions I haven't understood at the layer beneath.
@@ -46,6 +62,14 @@ Self-taught AI/ML engineer building **production RAG systems**, **agentic pipeli
 - **Qualified in the top 23% of 1,34,421 applicants** for **Amazon ML Summer School 2026** — cleared CV + SOP rounds with no college degree at time of application.
 - Implement ML algorithms (gradient descent, backpropagation, ensemble methods) **from scratch in NumPy**, validated line-by-line against library implementations.
 - Based in **Bangalore, India** — open to remote roles worldwide.
+
+---
+
+## Education
+
+- **BCA in AI & ML** — Lovely Professional University (LPU), *currently pursuing*
+  - Specializing in Artificial Intelligence and Machine Learning alongside production engineering work
+  - Self-study parallel track on agentic AI, RAG systems, and mathematical ML foundations
 
 ---
 
@@ -94,20 +118,6 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 ---
 
-## Recent Activity
-
-<!-- Live contribution heatmap, refreshed daily by GitHub Actions -->
-<p align="center">
- <img src="contrib-heatmap.svg" alt="Ather's contribution graph" />
-</p>
-
-<!-- Live day-streak graph, refreshed daily by GitHub Actions -->
-<p align="center">
- <img src="streak-graph.svg" alt="Ather's day streak graph" />
-</p>
-
----
-
 ## Tech Stack
 
 <div align="center">
@@ -131,14 +141,6 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 **Also:** Neural Networks · XGBoost · Random Forest · GROQ · Gradio · Vercel
 
 </div>
-
----
-
-## Education
-
-- **BCA in AI & ML** — Lovely Professional University (LPU), *currently pursuing*
-  - Specializing in Artificial Intelligence and Machine Learning alongside production engineering work
-  - Self-study parallel track on agentic AI, RAG systems, and mathematical ML foundations
 
 ---
 
