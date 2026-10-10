@@ -28,14 +28,17 @@ jobs:
           GH_PROFILE_USER: ather-ops
         run: python scripts/fetch_contributions.py
 
-      - name: Render contribution graph
+      - name: Render contribution heatmap
         run: python scripts/render_heatmap_svg.py
 
-      - name: Commit updated graph
+      - name: Render day streak graph
+        run: python scripts/make_streak_graph.py
+
+      - name: Commit updated graphs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/contributions.json contrib-heatmap.svg
+          git add data/contributions.json contrib-heatmap.svg streak-graph.svg
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else

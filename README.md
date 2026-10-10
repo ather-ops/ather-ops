@@ -21,9 +21,9 @@
 
 <table>
  <tr>
- <!-- Monochrome portrait that reveals itself on load -->
+ <!-- High-detail ASCII portrait that types itself in -->
  <td align="center" valign="top">
- <img src="photo-reveal.svg" width="370" alt="Portrait of Ather Assadullah Peer" />
+ <img src="avi-ascii.svg" width="370" alt="ASCII portrait of Ather Assadullah Peer" />
  </td>
  <!-- Neofetch-style info panel -->
  <td align="center" valign="top">
@@ -42,7 +42,7 @@
 
 Self-taught AI/ML engineer building **production RAG systems**, **agentic pipelines**, and **ML algorithms from mathematical first principles** — no shortcuts, no abstractions I haven't understood at the layer beneath.
 
-- **Shipped [Xpect AI](https://cinesense-ai-v1.streamlit.app)** — a production RAG semantic search engine over 8,800+ titles — in **15 days**, concept to live deployment.
+- **Shipped [Xpect AI](https://x-ai-test.streamlit.app)** — a production RAG semantic search engine over 8,800+ titles — in **15 days**, concept to live deployment.
 - **Qualified in the top 23% of 1,34,421 applicants** for **Amazon ML Summer School 2026** — cleared CV + SOP rounds with no college degree at time of application.
 - Implement ML algorithms (gradient descent, backpropagation, ensemble methods) **from scratch in NumPy**, validated line-by-line against library implementations.
 - Based in **Bangalore, India** — open to remote roles worldwide.
@@ -56,6 +56,7 @@ Self-taught AI/ML engineer building **production RAG systems**, **agentic pipeli
 | **RAG Systems** | Production pipelines with ChromaDB, FAISS, SentenceTransformers, Gemini 2.5 Flash — sub-second retrieval at scale |
 | **Agentic AI** | LangGraph, smolagents, ReAct agents, multi-agent orchestration, tool-use pipelines |
 | **ML from Scratch** | Linear/Logistic Regression, Random Forest, XGBoost, Neural Networks — built in NumPy, benchmarked against Scikit-learn |
+| **Async API Systems** | Concurrent data collection from multiple real-world APIs, aggregation pipelines, real-time intelligence engines |
 | **SQL & Databases** | Normalized schema design, JOINs, window functions, stored procedures, views, triggers (PostgreSQL) |
 | **Full-Stack Deployment** | FastAPI backends, Streamlit Cloud, HuggingFace Spaces, AWS (EC2/S3/Lambda — in progress) |
 
@@ -63,9 +64,17 @@ Self-taught AI/ML engineer building **production RAG systems**, **agentic pipeli
 
 ## Featured Projects
 
-### [Xpect AI](https://cinesense-ai-v1.streamlit.app) — Production RAG Application
+### [Xpect AI](https://x-ai-test.streamlit.app) — Production RAG Movie Search
 Full end-to-end RAG pipeline over 8,800+ titles — sentence chunking, batch vector embedding, persistent ChromaDB storage, and a Gemini 2.5 Flash generation layer constrained to retrieved context to eliminate hallucinations. FastAPI backend + Streamlit chat UI with mood/genre filters.
-`Python` `ChromaDB` `SentenceTransformers` `Gemini 2.5 Flash` `FastAPI` `Streamlit`
+[Repo](https://github.com/ather-ops/Xpect-AI) · `Python` `ChromaDB` `SentenceTransformers` `Gemini 2.5 Flash` `FastAPI` `Streamlit`
+
+### [Amazn AI](https://amazn-agentic-ai.streamlit.app) — Smart Product Finder Agent
+Agentic AI product finder that reasons about natural-language shopping queries, plans multi-step retrieval across product catalogs, and returns grounded recommendations. Built with smolagents + LangGraph orchestration.
+[Repo](https://github.com/ather-ops/Amazn-AI) · `Python` `smolagents` `LangGraph` `Gradio` `Streamlit`
+
+### [PulseMesh](https://pulsh-mesh.streamlit.app) — Async API Intelligence Engine
+Concurrent data-aggregation engine that fans out across multiple real-world APIs in parallel, normalizes the responses, and surfaces structured intelligence in a single Streamlit dashboard. Built around `asyncio`, `aiohttp`, and a clean ETL core.
+[Repo](https://github.com/ather-ops/pulsemesh) · `Python` `asyncio` `aiohttp` `Streamlit` `Pandas`
 
 ### [Atlas Agent](https://github.com/ather-ops/atlas-agent) — Autonomous AI Assistant
 Multi-step autonomous assistant built with smolagents — reasons through goals, invokes external tools (web search, RAG retrieval, code execution, weather API), and completes tasks with minimal supervision.
@@ -87,9 +96,14 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 ## Recent Activity
 
-<!-- Live contribution graph, refreshed daily by GitHub Actions -->
+<!-- Live contribution heatmap, refreshed daily by GitHub Actions -->
 <p align="center">
  <img src="contrib-heatmap.svg" alt="Ather's contribution graph" />
+</p>
+
+<!-- Live day-streak graph, refreshed daily by GitHub Actions -->
+<p align="center">
+ <img src="streak-graph.svg" alt="Ather's day streak graph" />
 </p>
 
 ---
@@ -113,9 +127,18 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 **RAG & LLM:** ChromaDB · FAISS · Gemini 2.5 Flash · SentenceTransformers · Prompt Engineering · Cosine Similarity
 **Agentic AI:** LangGraph · smolagents · ReAct Agents · Multi-Agent Orchestration
+**Async & APIs:** asyncio · aiohttp · concurrent.futures · REST/GraphQL
 **Also:** Neural Networks · XGBoost · Random Forest · GROQ · Gradio · Vercel
 
 </div>
+
+---
+
+## Education
+
+- **BCA in AI & ML** — Lovely Professional University (LPU), *currently pursuing*
+  - Specializing in Artificial Intelligence and Machine Learning alongside production engineering work
+  - Self-study parallel track on agentic AI, RAG systems, and mathematical ML foundations
 
 ---
 

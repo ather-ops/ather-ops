@@ -41,6 +41,18 @@ def fetch_html(user):
         return r.read().decode("utf-8")
 
 
+def parse_total(html):
+    """Extract the actual contribution count from the page header text.
+
+    GitHub's profile says e.g. "749 contributions in the last year". The cell
+    data-level values are buckets 0..4, not the real count.
+    """
+    m = re.search(r"([0-9,]+)\s+contributions?\s+in the last year", html)
+    if m:
+        return int(m.group(1).replace(",", ""))
+    return None
+
+
 def parse(html):
     # each cell: data-date="YYYY-MM-DD" data-level="0..4"
     cells = re.findall(
@@ -57,6 +69,19 @@ def parse(html):
         days.append({"date": date, "level": LEVELS.get(level, 0)})
     days.sort(key=lambda d: d["date"])
     return days
+
+
+def parse_daily_counts(html):
+    """Extract a date -> actual contribution count map if present."""
+    # Some pages embed a tooltip with the real number per cell, e.g.:
+    #   <tool-tip ...>No contributions on March 5.</tool-tip>
+    # or "12 contributions on March 5."
+    out = {}
+    for date, num in re.findall(
+        r'(\d{4}-\d{2}-\d{2})[^<]*?(\d+)\s+contribution', html
+    ):
+        out[date] = int(num)
+    return out
 
 
 def streaks(days):
@@ -89,7 +114,24 @@ def main():
     days = parse(html)
     if not days:
         raise SystemExit("could not parse any contribution cells")
-    total, longest, cur = streaks(days)
+
+    # Prefer the real total from the page header ("749 contributions...")
+    # because cell data-level is just a 0..4 bucket, not the real count.
+    real_total = parse_total(html)
+    daily_counts = parse_daily_counts(html)
+
+    # attach count to each day if we scraped it
+    for d in days:
+        if d["date"] in daily_counts:
+            d["count"] = daily_counts[d["date"]]
+        else:
+            # estimate: data-level is 0..4, rough mapping (max ~ 25 / level 4)
+            d["count"] = max(0, d["level"]) * 6  # rough bucket estimate
+            if d["level"] == 0:
+                d["count"] = 0
+
+    _, longest, cur = streaks(days)
+    total = real_total if real_total is not None else sum(d["count"] for d in days)
     data = {
         "user": USER,
         "scraped": datetime.datetime.now().isoformat(timespec="seconds"),
