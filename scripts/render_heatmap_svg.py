@@ -28,10 +28,28 @@ TITLE   = "#1e293b"
 ACCENT  = "#475569"
 LABEL   = "#94a3b8"
 
-# slate ramp, level 0 (empty) -> level 4 (busy).
-# Kept cool-grey so this graph stays visually distinct from the violet streak
-# graph below it.
-RAMP    = ["#eef1f5", "#cbd5e1", "#94a3b8", "#64748b", "#334155"]
+# Multiple color schemes available for the heatmap. Each is a 5-step ramp
+# from level 0 (empty) -> level 4 (busy). Schemes use vivid spectrum colors
+# (not just grey) so the heatmap reads as colorful like the streak graph.
+# Set HEATMAP_SCHEME to one of the keys below.
+COLOR_SCHEMES = {
+    # Sunset: warm orange -> red
+    "sunset":  ["#fff7ed", "#fed7aa", "#fb923c", "#ea580c", "#9a3412"],
+    # Ocean: teal -> deep blue
+    "ocean":   ["#f0fdfa", "#99f6e4", "#2dd4bf", "#0e7490", "#0c4a6e"],
+    # Forest: lime -> deep green
+    "forest":  ["#f7fee7", "#bef264", "#84cc16", "#15803d", "#14532d"],
+    # Candy: pink -> magenta
+    "candy":   ["#fdf2f8", "#f9a8d4", "#f472b6", "#be185d", "#831843"],
+    # Spectrum: full rainbow (most colorful)
+    "spectrum":["#fef3c7", "#fde68a", "#a78bfa", "#7c3aed", "#4338ca"],
+    # Aurora: blue -> violet -> rose (matches the photo-reveal cycle)
+    "aurora":  ["#ecfeff", "#a5f3fc", "#818cf8", "#7c3aed", "#be185d"],
+}
+
+HEATMAP_SCHEME     = "aurora"
+ANIMATE_HUE_CYCLE  = True
+HUE_CYCLE_S        = 18   # seconds for full hue cycle on level-3/4 cells
 # ------------------------------------------------------------------ /config
 
 
@@ -47,6 +65,12 @@ def load():
 def build():
     d = load()
     days = d["days"]
+
+    # resolve color scheme (env override for quick testing)
+    scheme_name = os.environ.get("HEATMAP_SCHEME", HEATMAP_SCHEME)
+    if scheme_name not in COLOR_SCHEMES:
+        scheme_name = "aurora"
+    ramp = COLOR_SCHEMES[scheme_name]
 
     # map date -> level
     by = {x["date"]: x["level"] for x in days}
@@ -126,36 +150,78 @@ def build():
     # cells
     static = os.environ.get("STATIC", "0") == "1"
     step = 0.006   # seconds between each cell reveal
+
+    # Animated hue cycle for level-3 and level-4 cells. We rotate each cell's
+    # hue through the full spectrum slowly so the heatmap feels alive without
+    # being distracting. Levels 0-2 stay static (they're background-ish).
+    if ANIMATE_HUE_CYCLE and not static:
+        # Cycle: 8 stops sampled from the same color spectrum used by the photo
+        # reveal so the two animations feel like one continuous "look".
+        hue_palette = [
+            "#7c3aed",   # violet
+            "#9333ea",   # purple
+            "#be185d",   # rose
+            "#dc2626",   # red
+            "#ea580c",   # orange
+            "#0891b2",   # cyan
+            "#1e3a8a",   # indigo
+            "#7c3aed",   # violet (loop)
+        ]
+        hue_values = ";".join(hue_palette)
+        hue_keytimes = ";".join(f"{i/(len(hue_palette)-1):.3f}" for i in range(len(hue_palette)))
+        # small stagger so the wave moves across the canvas
+        col_stagger = 0.05
+
     for i, (week, row, level) in enumerate(grid):
         if level is None:
             continue
         x = LEFT + week * (CELL + GAP)
         y = TOP + row * (CELL + GAP)
-        col = RAMP[level]
-        rect = f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2.5" fill="{col}"'
-        if level == 0:
-            rect += ' opacity="0.3"'
-        if static:
-            rect += '/>'
+        col = ramp[level]
+        op = "0.3" if level == 0 else "1"
+
+        # Hue cycle only on the busiest cells (level 3, 4) so the eye is drawn
+        # to active contributions, not the empty space.
+        if (ANIMATE_HUE_CYCLE and not static
+                and level >= 3):
+            cell_begin = (i * step) + (week * col_stagger)
+            rect = (
+                f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2.5" '
+                f'fill="{col}" opacity="0">'
+                f'<animate attributeName="opacity" from="0" to="{op}" '
+                f'begin="{cell_begin:.3f}s" dur="0.35s" fill="freeze"/>'
+                f'<animate attributeName="fill" '
+                f'values="{hue_values}" keyTimes="{hue_keytimes}" '
+                f'begin="{cell_begin + HUE_CYCLE_S*0.6:.3f}s" '
+                f'dur="{HUE_CYCLE_S}s" repeatCount="indefinite"/>'
+                f'</rect>'
+            )
         else:
-            rect += (f'><animate attributeName="opacity" from="0" to="{"0.3" if level==0 else "1"}" '
-                     f'begin="{i*step:.3f}s" dur="0.35s" fill="freeze"/></rect>')
+            rect = f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2.5" fill="{col}"'
+            if level == 0:
+                rect += ' opacity="0.3"'
+            if static:
+                rect += '/>'
+            else:
+                rect += (f'><animate attributeName="opacity" from="0" to="{op}" '
+                         f'begin="{i*step:.3f}s" dur="0.35s" fill="freeze"/></rect>')
         svg.append(rect)
 
-    # legend
+    # legend (uses the active scheme)
     ly = H - 28
     svg.append(f'<text x="{LEFT}" y="{ly}" font-size="11" fill="{ACCENT}">Less</text>')
     lx = LEFT + 44
     for lvl in range(5):
         svg.append(f'<rect x="{lx}" y="{ly-11}" width="{CELL}" height="{CELL}" '
-                   f'rx="2.5" fill="{RAMP[lvl]}" opacity="{"0.3" if lvl==0 else "1"}"/>')
+                   f'rx="2.5" fill="{ramp[lvl]}" opacity="{"0.3" if lvl==0 else "1"}"/>')
         lx += CELL + 5
     svg.append(f'<text x="{lx}" y="{ly}" font-size="11" fill="{ACCENT}">More</text>')
 
     svg.append("</svg>")
     with open(OUT, "w") as f:
         f.write("".join(svg))
-    print(f"wrote {OUT}  ({W}x{H}, {nweeks} weeks, {len([g for g in grid if g[2] is not None])} cells)"
+    print(f"wrote {OUT}  ({W}x{H}, {nweeks} weeks, "
+          f"{len([g for g in grid if g[2] is not None])} cells, scheme={scheme_name})"
           + ("  [STATIC]" if static else "  [animated]"))
 
 
