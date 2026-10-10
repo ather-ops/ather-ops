@@ -23,12 +23,12 @@ ACCENT  = "#475569"
 BG      = "none"
 
 HOST    = "ather@ather-ops"
-HOST_TAG = "Machine Learning Engineer"
+HOST_TAG = "AI/ML Engineer"
 
 # (label, value) -- edit freely; label column auto-aligns to the longest.
 ROWS = [
     ("Name",      "Ather Assadullah Peer"),
-    ("Role",      "Machine Learning Engineer"),
+    ("Role",      "AI/ML Engineer"),
     ("Focus",     "RAG Systems  ·  Agentic AI  ·  LLM Apps"),
     ("Stack",     "Python · LangChain · FAISS · smolagents"),
     ("Data",      "PostgreSQL · ChromaDB · Redis · pgvector"),

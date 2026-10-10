@@ -5,7 +5,7 @@
 
 <div align="center">
 
-### Machine Learning Engineer · RAG Systems · Agentic AI · LLM Application Development
+### AI/ML Engineer · RAG Systems · Agentic AI · LLM Application Development
 
 **Self-taught · Production-focused · Open to AI/ML roles worldwide**
 

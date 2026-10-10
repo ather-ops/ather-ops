@@ -5,7 +5,7 @@
 
 # Hi, I'm Ather Assadullah Peer 👋
 
-**Machine Learning Engineer · RAG Systems · Agentic AI · LLM Application Development**
+**AI/ML Engineer · RAG Systems · Agentic AI · LLM Application Development**
 
 I build retrieval-augmented generation pipelines, agentic systems, and LLM
 applications that move from prototype to production.
