@@ -36,6 +36,26 @@ TOP_PAD_FRAC = 0.0
 GLYPH        = "#1f2937"              # single monochrome glyph color (dark slate)
 BG           = "none"                 # transparent
 
+# Animated color cycling for the "live, not static" feel. Glyphs pulse through
+# this palette while the typewriter reveal runs. Set ANIMATE_COLOR=0 to use a
+# single static GLYPH color instead.
+ANIMATE_COLOR  = True
+COLOR_PALETTE  = [
+    "#1f2937",   # slate   - base
+    "#1e3a8a",   # indigo
+    "#3730a3",   # deeper indigo
+    "#6d28d9",   # violet
+    "#9333ea",   # purple
+    "#be185d",   # rose    - hot peak
+    "#1e40af",   # back through blue
+    "#0891b2",   # cyan
+    "#0f766e",   # teal
+    "#0f172a",   # deep slate (rest)
+]
+COLOR_CYCLE_S  = 14        # full cycle period in seconds (slow, hypnotic)
+COLOR_STAGGER  = 0.06      # seconds of per-row delay so color moves like a wave
+ROW_BASE_FILL  = "#1f2937" # shadow rows always sit at this base slate
+
 # luminance / contrast curve
 GAMMA           = 0.85                 # <1 brightens shadows
 CONTRAST        = 1.30                 # >1 punches highlights/shadows
@@ -284,12 +304,36 @@ def build():
             )
     svg.append("<defs>" + "".join(defs) + "</defs>")
 
-    # One text element per line, clipped by its own clip-path
+    # One text element per line, clipped by its own clip-path.
+    # If ANIMATE_COLOR, each row cycles through COLOR_PALETTE with a stagger
+    # so the color sweeps down the portrait like a wave.
+    palette = COLOR_PALETTE if ANIMATE_COLOR else [GLYPH]
+    # Build a values list of hex colors at 1s steps across the cycle
+    pal_vals = ";".join(palette + [palette[0]])
+    n_pal = len(palette)
+
     for r in range(rows):
         y = top + (r + 0.82) * fh
-        svg.append(f'<text x="0" y="{y:.3f}" textLength="{float(W):.3f}" '
-                   f'lengthAdjust="spacingAndGlyphs" clip-path="url(#c{r})">'
-                   f'{esc(lines[r])}</text>')
+        if ANIMATE_COLOR and not static:
+            # Wave-stagger: each row starts the color cycle COLOR_STAGGER*r
+            # seconds later so colors cascade down the portrait.
+            begin = f"{r*COLOR_STAGGER:.2f}s"
+            svg.append(
+                f'<text x="0" y="{y:.3f}" textLength="{float(W):.3f}" '
+                f'lengthAdjust="spacingAndGlyphs" clip-path="url(#c{r})" '
+                f'fill="{palette[r % n_pal]}">'
+                f'<animate attributeName="fill" values="{pal_vals}" '
+                f'dur="{COLOR_CYCLE_S}s" begin="{begin}" '
+                f'repeatCount="indefinite"/>'
+                f'{esc(lines[r])}</text>'
+            )
+        else:
+            svg.append(
+                f'<text x="0" y="{y:.3f}" textLength="{float(W):.3f}" '
+                f'lengthAdjust="spacingAndGlyphs" clip-path="url(#c{r})" '
+                f'fill="{GLYPH}">'
+                f'{esc(lines[r])}</text>'
+            )
 
     # Blinking terminal cursor at the end of the last typed line
     if CURSOR and not static:

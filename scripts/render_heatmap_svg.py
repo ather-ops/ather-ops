@@ -24,11 +24,13 @@ GAP     = 3       # gap between boxes
 LEFT    = 20
 TOP     = 78
 FONT    = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-GLYPH   = "#1f2937"
-ACCENT  = "#64748b"
+TITLE   = "#1e293b"
+ACCENT  = "#475569"
 LABEL   = "#94a3b8"
 
-# monochrome slate ramp, level 0 (empty) -> level 4 (busy)
+# slate ramp, level 0 (empty) -> level 4 (busy).
+# Kept cool-grey so this graph stays visually distinct from the violet streak
+# graph below it.
 RAMP    = ["#eef1f5", "#cbd5e1", "#94a3b8", "#64748b", "#334155"]
 # ------------------------------------------------------------------ /config
 
@@ -87,7 +89,7 @@ def build():
     total = d.get("total", sum(x["level"] for x in days))
     cur = d.get("current_streak", 0)
     longest = d.get("longest_streak", 0)
-    svg.append(f'<text x="{LEFT}" y="34" font-size="15" font-weight="700" fill="{GLYPH}">'
+    svg.append(f'<text x="{LEFT}" y="34" font-size="15" font-weight="700" fill="{TITLE}">'
                f'{total} contributions in the last year</text>')
     svg.append(f'<text x="{LEFT}" y="60" font-size="13" fill="{ACCENT}">'
                f'current streak {cur}  ·  longest streak {longest}  ·  '

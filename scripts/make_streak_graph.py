@@ -26,14 +26,15 @@ PAD_T       = 78
 PAD_B       = 44
 
 FONT    = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-GLYPH   = "#1f2937"
+TITLE   = "#1e293b"
 ACCENT  = "#475569"
 LABEL   = "#94a3b8"
-CUR_HL  = "#1f2937"     # current-streak bar color
-LONG_HL = "#475569"     # longest-streak bar color (slightly lighter)
+CUR_HL  = "#2563eb"     # current-streak bar color (blue, distinct from heatmap slate)
+LONG_HL = "#7c3aed"     # longest-streak bar color (violet, distinct)
 
-# monochrome ramp (level 0..4 -> fill color)
-RAMP    = ["#eef1f5", "#cbd5e1", "#94a3b8", "#64748b", "#334155"]
+# indigo -> violet ramp (level 0..4 -> fill color) so this graph is visually
+# distinct from the heatmap (which stays slate/grey).
+RAMP    = ["#eef2ff", "#c7d2fe", "#818cf8", "#6366f1", "#4338ca"]
 # ------------------------------------------------------------------ /config
 
 
@@ -113,7 +114,7 @@ def build():
                f'viewBox="0 0 {W} {H}" font-family="{FONT}">')
 
     # Title
-    svg.append(f'<text x="{PAD_L}" y="32" font-size="16" font-weight="700" fill="{GLYPH}">'
+    svg.append(f'<text x="{PAD_L}" y="32" font-size="16" font-weight="700" fill="{TITLE}">'
                f'Day Streak Graph</text>')
     svg.append(f'<text x="{PAD_L}" y="56" font-size="13" fill="{ACCENT}">'
                f'{total} contributions in the last year  ·  current streak {cur} days  ·  '
@@ -132,7 +133,7 @@ def build():
 
     # X axis baseline
     svg.append(f'<line x1="{PAD_L}" y1="{PAD_T + plot_h:.1f}" '
-               f'x2="{W - PAD_R}" y2="{PAD_T + plot_h:.1f}" stroke="{GLYPH}" stroke-width="1"/>')
+               f'x2="{W - PAD_R}" y2="{PAD_T + plot_h:.1f}" stroke="{TITLE}" stroke-width="1"/>')
 
     # Build set of dates in longest / current streak so we can color them
     longest_dates = set()
