@@ -21,9 +21,9 @@
 
 <table>
  <tr>
- <!-- High-detail ASCII portrait that types itself in -->
+ <!-- Real photo with cinematic animated color reveal -->
  <td align="center" valign="top">
- <img src="avi-ascii.svg" width="370" alt="ASCII portrait of Ather Assadullah Peer" />
+ <img src="photo-reveal.svg" width="370" alt="Portrait of Ather Assadullah Peer" />
  </td>
  <!-- Neofetch-style info panel -->
  <td align="center" valign="top">
