@@ -57,6 +57,12 @@ def main():
     for fn, text in title_specs:
         run(["python3", os.path.join(HERE, "make_section_title.py"), text, fn])
 
+    # ---- Hero (terminal-style code header) -----------------------------
+    run(["python3", os.path.join(HERE, "make_hero.py")])
+    if os.path.exists("hero.svg"):
+        # already named hero.svg
+        pass
+
     # ---- Project accent strips -------------------------------------------
     project_specs = [
         ("accent-xpect.svg",      "Xpect AI",         "xpect-ai"),

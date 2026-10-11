@@ -2,31 +2,7 @@
 <!-- Hero indigo, contribution aurora, about-me teal, education amber,      -->
 <!-- what-i-build indigo, featured rainbow, tech-stack slate, key gold.    -->
 
-<div align="center">
-
-# <span style="font-family:'Segoe UI',Inter,system-ui,sans-serif;font-weight:800;font-size:38px;background:linear-gradient(90deg,#1e3a8a,#7c3aed,#be185d,#0891b2,#1e3a8a);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:0.5px">Ather Assadullah Peer</span>
-
-<br/>
-
-<span style="font-family:'JetBrains Mono','Fira Code',ui-monospace,monospace;font-weight:500;font-size:17px;color:#475569">AI/ML Engineer · RAG Systems · Agentic AI · LLM Application Development</span>
-
-<br/><br/>
-
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:14px;color:#64748b"><strong>Self-taught · Production-focused · Open to AI/ML roles worldwide</strong></span>
-
-<br/><br/>
-
-[![Portfolio](https://img.shields.io/badge/Portfolio-0f172a?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-two-pink-24.vercel.app/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-1e3a8a?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ather-assadullah-164492301)
-[![X](https://img.shields.io/badge/X-0f172a?style=for-the-badge&logo=x&logoColor=white)](https://x.com/PeerAther47970)
-[![Email](https://img.shields.io/badge/Email-475569?style=for-the-badge&logo=gmail&logoColor=white)](mailto:peerather07@gmail.com)
-[![LeetCode](https://img.shields.io/badge/LeetCode-64748b?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/)
-
-</div>
-
-<br/>
-
-<p align="center"><img src="divider-hero.svg" width="880" alt=""/></p>
+<p align="center"><img src="hero.svg" width="880" alt="Ather Assadullah Peer"/></p>
 
 <table>
  <tr>
@@ -38,6 +14,16 @@
  </td>
  </tr>
 </table>
+
+<p align="center">
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-0f172a?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-two-pink-24.vercel.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-1e3a8a?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ather-assadullah-164492301)
+[![X](https://img.shields.io/badge/X-0f172a?style=for-the-badge&logo=x&logoColor=white)](https://x.com/PeerAther47970)
+[![Email](https://img.shields.io/badge/Email-475569?style=for-the-badge&logo=gmail&logoColor=white)](mailto:peerather07@gmail.com)
+[![LeetCode](https://img.shields.io/badge/LeetCode-64748b?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/)
+
+</p>
 
 <p align="center"><img src="divider-contrib.svg" width="880" alt=""/></p>
 
