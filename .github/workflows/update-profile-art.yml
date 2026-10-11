@@ -3,7 +3,7 @@ name: Update profile art
 on:
   schedule:
     - cron: "30 0 * * *"   # daily at 00:30 UTC
-  workflow_dispatch: {}     # allow manual trigger from the Actions tab
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -34,18 +34,14 @@ jobs:
       - name: Render day streak graph
         run: python scripts/make_streak_graph.py
 
-      - name: Build all decorative SVGs
-        run: python scripts/build_all.py
-
       - name: Commit updated graphs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/contributions.json contrib-heatmap.svg streak-graph.svg
-          git add title-*.svg divider-*.svg accent-*.svg pill-*.svg hero.svg banner.svg
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore: refresh profile art"
+            git commit -m "chore: refresh contribution graph"
             git push
           fi
