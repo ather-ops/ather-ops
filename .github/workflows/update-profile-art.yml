@@ -42,7 +42,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/contributions.json contrib-heatmap.svg streak-graph.svg
-          git add title-*.svg divider-*.svg accent-*.svg pill-*.svg hero.svg
+          git add title-*.svg divider-*.svg accent-*.svg pill-*.svg hero.svg banner.svg
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else

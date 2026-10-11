@@ -18,9 +18,9 @@ OUT     = "info-card.svg"
 W       = 490
 H       = 460
 FONT    = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-GLYPH   = "#1f2937"
-ACCENT  = "#475569"
-BG      = "none"
+GLYPH   = "#e2e8f0"   # light text on dark card
+ACCENT  = "#94a3b8"   # mid grey
+BG      = "#0f172a"   # dark card background
 
 HOST    = "ather@ather-ops"
 HOST_TAG = "AI/ML Engineer"

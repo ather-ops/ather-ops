@@ -138,8 +138,8 @@ def build():
         f'width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
     )
 
-    # White background
-    svg.append(f'<rect width="{W}" height="{H}" fill="#ffffff"/>')
+    # Dark backdrop for dark theme
+    svg.append(f'<rect width="{W}" height="{H}" fill="#0f172a"/>')
 
     # Subtle gradient backdrop (always animating, even before reveal)
     svg.append(

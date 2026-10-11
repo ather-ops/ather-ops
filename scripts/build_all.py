@@ -59,9 +59,9 @@ def main():
 
     # ---- Hero (terminal-style code header) -----------------------------
     run(["python3", os.path.join(HERE, "make_hero.py")])
-    if os.path.exists("hero.svg"):
-        # already named hero.svg
-        pass
+
+    # ---- Banner (wide dotted-art header) ------------------------------
+    run(["python3", os.path.join(HERE, "make_banner.py")])
 
     # ---- Project accent strips -------------------------------------------
     project_specs = [

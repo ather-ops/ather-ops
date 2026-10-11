@@ -1,10 +1,12 @@
-<!-- Ather Assadullah Peer (@ather-ops) — animated profile, per-section accents -->
-<!-- Hero indigo, contribution aurora, about-me teal, education amber,      -->
-<!-- what-i-build indigo, featured rainbow, tech-stack slate, key gold.    -->
+<!-- The hero SVGs (banner, hero, photo, info card) are designed with dark -->
+<!-- backdrops so they read correctly in GitHub's default dark mode and    -->
+<!-- light mode. Text below uses mid-greys that read on both backgrounds.  -->
 
-<p align="center"><img src="hero.svg" width="880" alt="Ather Assadullah Peer"/></p>
+<p align="center"><img src="banner.svg" width="880" alt="Banner" /></p>
 
-<table>
+<p align="center"><img src="hero.svg" width="880" alt="Ather Assadullah Peer — code-style hero" /></p>
+
+<table align="center">
  <tr>
  <td align="center" valign="top" width="380">
  <img src="photo-reveal.svg" width="370" alt="Portrait of Ather Assadullah Peer" />
@@ -25,19 +27,25 @@
 
 </p>
 
-<p align="center"><img src="divider-contrib.svg" width="880" alt=""/></p>
+<hr/>
 
 <p align="center"><img src="title-contrib.svg" alt="Contribution" /></p>
 
-<p align="center"><img src="contrib-heatmap.svg" alt="Ather's contribution graph" /></p>
+<div align="center">
 
-<p align="center"><img src="streak-graph.svg" alt="Ather's day streak graph" /></p>
+<img src="contrib-heatmap.svg" alt="Ather's contribution graph" />
 
-<p align="center"><img src="divider-about.svg" width="880" alt=""/></p>
+<br/>
+
+<img src="streak-graph.svg" alt="Ather's day streak graph" />
+
+</div>
+
+<hr/>
 
 <p align="center"><img src="title-about.svg" alt="About Me" /></p>
 
-<span style="font-family:'Inter','Segoe UI',system-ui,sans-serif;font-size:16px;color:#1f2937;line-height:1.7">
+<span style="font-family:'Inter','Segoe UI',system-ui,sans-serif;font-size:16px;color:#cbd5e1;line-height:1.7;display:block">
 
 Self-taught AI/ML engineer building **production RAG systems**, **agentic pipelines**, and **ML algorithms from mathematical first principles** — no shortcuts, no abstractions I haven't understood at the layer beneath.
 
@@ -48,11 +56,11 @@ Self-taught AI/ML engineer building **production RAG systems**, **agentic pipeli
 
 </span>
 
-<p align="center"><img src="divider-education.svg" width="880" alt=""/></p>
+<hr/>
 
 <p align="center"><img src="title-edu.svg" alt="Education" /></p>
 
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:16px;color:#1f2937">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:16px;color:#cbd5e1;line:block">
 
 - **BCA in AI & ML** — Lovely Professional University (LPU), *currently pursuing*
   - Specializing in Artificial Intelligence and Machine Learning alongside production engineering work
@@ -60,11 +68,11 @@ Self-taught AI/ML engineer building **production RAG systems**, **agentic pipeli
 
 </span>
 
-<p align="center"><img src="divider-build.svg" width="880" alt=""/></p>
+<hr/>
 
 <p align="center"><img src="title-build.svg" alt="What I Build" /></p>
 
-<span style="font-family:'JetBrains Mono','Fira Code',ui-monospace,monospace;font-size:14px;color:#1f2937">
+<span style="font-family:'JetBrains Mono','Fira Code',ui-monospace,monospace;font-size:14px;color:#cbd5e1;display:block">
 
 | Area | Details |
 |---|---|
@@ -77,93 +85,93 @@ Self-taught AI/ML engineer building **production RAG systems**, **agentic pipeli
 
 </span>
 
-<p align="center"><img src="divider-featured.svg" width="880" alt=""/></p>
+<hr/>
 
 <p align="center"><img src="title-featured.svg" alt="Featured Projects" /></p>
 
 <p><img src="accent-xpect.svg" width="800" alt=""/></p>
 
 ### [Xpect AI](https://x-ai-test.streamlit.app) — Production RAG Movie Search
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#1f2937;line-height:1.7">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#cbd5e1;line-height:1.7;display:block">
 
 Full end-to-end RAG pipeline over 8,800+ titles — sentence chunking, batch vector embedding, persistent ChromaDB storage, and a Gemini 2.5 Flash generation layer constrained to retrieved context to eliminate hallucinations. FastAPI backend + Streamlit chat UI with mood/genre filters.
 
 </span>
-[Repo](https://github.com/ather-ops/Xpect-AI) · <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#1e3a8a">`Python` `ChromaDB` `SentenceTransformers` `Gemini 2.5 Flash` `FastAPI` `Streamlit`</span>
+[Repo](https://github.com/ather-ops/Xpect-AI) · <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#06b6d4">`Python` `ChromaDB` `SentenceTransformers` `Gemini 2.5 Flash` `FastAPI` `Streamlit`</span>
 
 <br/>
 
 <p><img src="accent-amazn.svg" width="800" alt=""/></p>
 
 ### [Amazn AI](https://amazn-agentic-ai.streamlit.app) — Smart Product Finder Agent
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#1f2937;line-height:1.7">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#cbd5e1;line-height:1.7;display:block">
 
 Agentic AI product finder that reasons about natural-language shopping queries, plans multi-step retrieval across product catalogs, and returns grounded recommendations. Built with smolagents + LangGraph orchestration.
 
 </span>
-[Repo](https://github.com/ather-ops/Amazn-AI) · <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#7c3aed">`Python` `smolagents` `LangGraph` `Gradio` `Streamlit`</span>
+[Repo](https://github.com/ather-ops/Amazn-AI) · <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#a78bfa">`Python` `smolagents` `LangGraph` `Gradio` `Streamlit`</span>
 
 <br/>
 
 <p><img src="accent-pulse.svg" width="800" alt=""/></p>
 
 ### [PulseMesh](https://pulsh-mesh.streamlit.app) — Async API Intelligence Engine
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#1f2937;line-height:1.7">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#cbd5e1;line-height:1.7;display:block">
 
 Concurrent data-aggregation engine that fans out across multiple real-world APIs in parallel, normalizes the responses, and surfaces structured intelligence in a single Streamlit dashboard. Built around `asyncio`, `aiohttp`, and a clean ETL core.
 
 </span>
-[Repo](https://github.com/ather-ops/pulsemesh) · <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#0891b2">`Python` `asyncio` `aiohttp` `Streamlit` `Pandas`</span>
+[Repo](https://github.com/ather-ops/pulsemesh) · <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#06b6d4">`Python` `asyncio` `aiohttp` `Streamlit` `Pandas`</span>
 
 <br/>
 
 <p><img src="accent-atlas.svg" width="800" alt=""/></p>
 
 ### [Atlas Agent](https://github.com/ather-ops/atlas-agent) — Autonomous AI Assistant
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#1f2937;line-height:1.7">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#cbd5e1;line-height:1.7;display:block">
 
 Multi-step autonomous assistant built with smolagents — reasons through goals, invokes external tools (web search, RAG retrieval, code execution, weather API), and completes tasks with minimal supervision.
 
 </span>
-<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#be185d">`smolagents` `LangGraph` `HuggingFace` `Gradio`</span>
+<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#ec4899">`smolagents` `LangGraph` `HuggingFace` `Gradio`</span>
 
 <br/>
 
 <p><img src="accent-hospital.svg" width="800" alt=""/></p>
 
 ### [Hospital Management SQL](https://github.com/ather-ops/Hospital-Management-SQL) — Database Engineering
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#1f2937;line-height:1.7">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#cbd5e1;line-height:1.7;display:block">
 
 Fully normalized relational schema (patients, doctors, appointments, treatments, billing) with complex JOINs, window functions, stored procedures, views, and triggers for operational reporting.
 
 </span>
-<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#0891b2">`SQL` `PostgreSQL` `Python`</span>
+<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#06b6d4">`SQL` `PostgreSQL` `Python`</span>
 
 <br/>
 
 <p><img src="accent-cafe.svg" width="800" alt=""/></p>
 
 ### [Cafe Sales Analysis](https://github.com/ather-ops) — Data Cleaning & EDA
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#1f2937;line-height:1.7">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#cbd5e1;line-height:1.7;display:block">
 
 End-to-end cleaning of a 10,000-row real-world-messy dataset, followed by feature engineering, outlier detection, and EDA translating raw transactions into business insights.
 
 </span>
-<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#b45309">`Python` `Pandas` `NumPy` `Matplotlib`</span>
+<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#f59e0b">`Python` `Pandas` `NumPy` `Matplotlib`</span>
 
 <br/>
 
 <p><img src="accent-ml.svg" width="800" alt=""/></p>
 
 ### [ML Algorithms from Mathematical Foundations](https://github.com/ather-ops)
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#1f2937;line-height:1.7">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:15px;color:#cbd5e1;line-height:1.7;display:block">
 
 Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from scratch — zero Scikit-learn — validating forward/backward propagation and gradient math by hand.
 
 </span>
-<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#15803d">`Python` `NumPy` `Pandas`</span>
+<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#10b981">`Python` `NumPy` `Pandas`</span>
 
-<p align="center"><img src="divider-tech.svg" width="880" alt=""/></p>
+<hr/>
 
 <p align="center"><img src="title-tech.svg" alt="Tech Stack" /></p>
 
@@ -177,7 +185,7 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 <br/><br/>
 
-<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#475569">
+<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:#94a3b8;display:block">
 
 **RAG & LLM:** ChromaDB · FAISS · Gemini 2.5 Flash · SentenceTransformers · Prompt Engineering · Cosine Similarity
 **Agentic AI:** LangGraph · smolagents · ReAct Agents · Multi-Agent Orchestration
@@ -188,11 +196,11 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 </div>
 
-<p align="center"><img src="divider-key.svg" width="880" alt=""/></p>
+<hr/>
 
 <p align="center"><img src="title-key.svg" alt="Key Achievements" /></p>
 
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:16px;color:#1f2937;line-height:1.7">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:16px;color:#cbd5e1;line-height:1.7;display:block">
 
 - **Amazon ML Summer School 2026** — Top 23% of 1,34,421 applicants nationwide (CV + SOP rounds), without a college degree at time of application
 - **Xpect AI shipped in 15 days** — full vector pipeline, LLM integration, FastAPI backend, live Streamlit Cloud deployment
@@ -201,13 +209,13 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 </span>
 
----
+<hr/>
 
 <div align="center">
 
 ### What I Bring to a Team
 
-<span style="font-family:'Inter',system-ui,sans-serif;font-size:14px;color:#475569;line-height:1.8">
+<span style="font-family:'Inter',system-ui,sans-serif;font-size:14px;color:#94a3b8;line-height:1.8;display:block">
 
 **Production Velocity** · Shipped a full RAG system in 15 days, zero to live
 **Mathematical Depth** · ML algorithms and gradient math implemented in NumPy, no shortcuts
@@ -218,7 +226,7 @@ Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from
 
 <br/>
 
-<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;color:#1e293b">
+<span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;color:#e2e8f0;display:block">
 
  **peerather07@gmail.com** · Bangalore, India · Open to Remote
 
