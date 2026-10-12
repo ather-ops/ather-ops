@@ -1,201 +1,157 @@
-# Hi 👋, I'm Ather Assadullah Peer
+<!-- Ather Assadullah Peer (@ather-ops) — monochrome animated profile -->
+<!-- All motion lives inside self-hosted SVGs in this repo, so nothing 404s. -->
+
+# Ather Assadullah Peer
+
+<div align="center">
 
 ### AI/ML Engineer · RAG Systems · Agentic AI · LLM Application Development
 
-<div align="center">
+**Self-taught · Production-focused · Open to AI/ML roles worldwide**
 
-  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4510-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt=""/>
-
-</div>
-
----
-
-## 🌐 Connect with Me
-
-<div align="center">
-
-  [![Portfolio](https://img.shields.io/badge/Portfolio-1f2937?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-two-pink-24.vercel.app/)
-  &nbsp;
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ather-assadullah-164492301)
-  &nbsp;
-  [![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/PeerAther47970)
-  &nbsp;
-  [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:peerather07@gmail.com)
-  &nbsp;
-  [![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/)
-
-</div>
-
-<div align="center">
-
-  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4510-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt=""/>
+[![Portfolio](https://img.shields.io/badge/Portfolio-1f2937?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-two-pink-24.vercel.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-334155?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ather-assadullah-164492301)
+[![X](https://img.shields.io/badge/X-0f172a?style=for-the-badge&logo=x&logoColor=white)](https://x.com/PeerAther47970)
+[![Email](https://img.shields.io/badge/Email-475569?style=for-the-badge&logo=gmail&logoColor=white)](mailto:peerather07@gmail.com)
+[![LeetCode](https://img.shields.io/badge/LeetCode-64748b?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/)
 
 </div>
 
 ---
 
-## 💻 Tech Stack
-
-<div align="center">
-
-  **Core**
-  <br/>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" />
-  <br/><br/>
-
-  **RAG & LLMs**
-  <br/>
-  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/smolagents-FF6F61?style=for-the-badge&logo=huggingface&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/ChromaDB-000000?style=for-the-badge&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/FAISS-0467DF?style=for-the-badge&logo=meta&logoColor=white" />
-  <br/><br/>
-
-  **Backend & Data**
-  <br/>
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
-
-</div>
-
-<div align="center">
-
-  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4510-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt=""/>
-
-</div>
+<table>
+ <tr>
+ <td align="center" valign="top">
+ <img src="photo-reveal.svg" width="370" alt="Portrait of Ather Assadullah Peer" />
+ </td>
+ <td align="center" valign="top">
+ <img src="info-card.svg" width="490" alt="Ather's info card" />
+ </td>
+ </tr>
+</table>
 
 ---
 
-## 📊 GitHub Analytics
+## Contribution
 
-<div align="center">
+<p align="center">
+ <img src="contrib-heatmap.svg" alt="Ather's contribution graph" />
+</p>
 
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=ather-ops&theme=tokyonight&show_icons=true&hide_border=true&count_private=true" alt="GitHub Stats" />
-  &nbsp;
-  <img width="48%" src="https://github-readme-streak-stats.demolab.com/?user=ather-ops&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
-
-  <br/>
-
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ather-ops&theme=tokyonight&show_icons=true&hide_border=true&layout=compact" alt="Top Languages" />
-
-</div>
-
-<div align="center">
-
-  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4510-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt=""/>
-
-</div>
+<p align="center">
+ <img src="streak-graph.svg" alt="Ather's day streak graph" />
+</p>
 
 ---
 
-## 🏆 Featured Projects
-
-<div align="center">
-
-  <a href="https://x-ai-test.streamlit.app"><img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=ather-ops&repo=Xpect-AI&theme=tokyonight&hide_border=true" alt="Xpect AI" /></a>
-  &nbsp;
-  <a href="https://amazn-agentic-ai.streamlit.app"><img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=ather-ops&repo=Amazn-AI&theme=tokyonight&hide_border=true" alt="Amazn AI" /></a>
-
-  <br/>
-
-  <a href="https://pulsh-mesh.streamlit.app"><img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=ather-ops&repo=pulsemesh&theme=tokyonight&hide_border=true" alt="PulseMesh" /></a>
-  &nbsp;
-  <a href="https://github.com/ather-ops/atlas-agent"><img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=ather-ops&repo=atlas-agent&theme=tokyonight&hide_border=true" alt="Atlas Agent" /></a>
-
-  <br/>
-
-  <a href="https://github.com/ather-ops/Hospital-Management-SQL"><img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=ather-ops&repo=Hospital-Management-SQL&theme=tokyonight&hide_border=true" alt="Hospital Management SQL" /></a>
-
-</div>
-
-<div align="center">
-
-  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4510-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt=""/>
-
-</div>
-
----
-
-## 📈 Contribution Graph
-
-<div align="center">
-
-  <img src="contrib-heatmap.svg" alt="Ather's contribution graph" />
-  <br/>
-  <img src="streak-graph.svg" alt="Ather's day streak graph" />
-
-</div>
-
-<div align="center">
-
-  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4510-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt=""/>
-
-</div>
-
----
-
-## 👨‍💻 About Me
-
-<div align="center">
-
-  <img src="photo-reveal.svg" width="320" alt="Portrait of Ather Assadullah Peer" />
-
-</div>
-
-<br/>
+## About Me
 
 Self-taught AI/ML engineer building **production RAG systems**, **agentic pipelines**, and **ML algorithms from mathematical first principles** — no shortcuts, no abstractions I haven't understood at the layer beneath.
 
 - **Shipped [Xpect AI](https://x-ai-test.streamlit.app)** — a production RAG semantic search engine over 8,800+ titles — in **15 days**, concept to live deployment.
 - **Qualified in the top 23% of 1,34,421 applicants** for **Amazon ML Summer School 2026** — cleared CV + SOP rounds with no college degree at time of application.
 - Implement ML algorithms (gradient descent, backpropagation, ensemble methods) **from scratch in NumPy**, validated line-by-line against library implementations.
-- **Currently pursuing BCA in AI & ML** at Lovely Professional University (LPU).
 - Based in **Bangalore, India** — open to remote roles worldwide.
 
+---
+
+## Education
+
+- **BCA in AI & ML** — Lovely Professional University (LPU), *currently pursuing*
+  - Specializing in Artificial Intelligence and Machine Learning alongside production engineering work
+  - Self-study parallel track on agentic AI, RAG systems, and mathematical ML foundations
+
+---
+
+## What I Build
+
+| Area | Details |
+|---|---|
+| **RAG Systems** | Production pipelines with ChromaDB, FAISS, SentenceTransformers, Gemini 2.5 Flash — sub-second retrieval at scale |
+| **Agentic AI** | LangGraph, smolagents, ReAct agents, multi-agent orchestration, tool-use pipelines |
+| **ML from Scratch** | Linear/Logistic Regression, Random Forest, XGBoost, Neural Networks — built in NumPy, benchmarked against Scikit-learn |
+| **Async API Systems** | Concurrent data collection from multiple real-world APIs, aggregation pipelines, real-time intelligence engines |
+| **SQL & Databases** | Normalized schema design, JOINs, window functions, stored procedures, views, triggers (PostgreSQL) |
+| **Full-Stack Deployment** | FastAPI backends, Streamlit Cloud, HuggingFace Spaces, AWS (EC2/S3/Lambda — in progress) |
+
+---
+
+## Featured Projects
+
+### [Xpect AI](https://x-ai-test.streamlit.app) — Production RAG Movie Search
+Full end-to-end RAG pipeline over 8,800+ titles — sentence chunking, batch vector embedding, persistent ChromaDB storage, and a Gemini 2.5 Flash generation layer constrained to retrieved context to eliminate hallucinations. FastAPI backend + Streamlit chat UI with mood/genre filters.
+[Repo](https://github.com/ather-ops/Xpect-AI) · `Python` `ChromaDB` `SentenceTransformers` `Gemini 2.5 Flash` `FastAPI` `Streamlit`
+
+### [Amazn AI](https://amazn-agentic-ai.streamlit.app) — Smart Product Finder Agent
+Agentic AI product finder that reasons about natural-language shopping queries, plans multi-step retrieval across product catalogs, and returns grounded recommendations. Built with smolagents + LangGraph orchestration.
+[Repo](https://github.com/ather-ops/Amazn-AI) · `Python` `smolagents` `LangGraph` `Gradio` `Streamlit`
+
+### [PulseMesh](https://pulsh-mesh.streamlit.app) — Async API Intelligence Engine
+Concurrent data-aggregation engine that fans out across multiple real-world APIs in parallel, normalizes the responses, and surfaces structured intelligence in a single Streamlit dashboard. Built around `asyncio`, `aiohttp`, and a clean ETL core.
+[Repo](https://github.com/ather-ops/pulsemesh) · `Python` `asyncio` `aiohttp` `Streamlit` `Pandas`
+
+### [Atlas Agent](https://github.com/ather-ops/atlas-agent) — Autonomous AI Assistant
+Multi-step autonomous assistant built with smolagents — reasons through goals, invokes external tools (web search, RAG retrieval, code execution, weather API), and completes tasks with minimal supervision.
+`smolagents` `LangGraph` `HuggingFace` `Gradio`
+
+### [Hospital Management SQL](https://github.com/ather-ops/Hospital-Management-SQL) — Database Engineering
+Fully normalized relational schema (patients, doctors, appointments, treatments, billing) with complex JOINs, window functions, stored procedures, views, and triggers for operational reporting.
+`SQL` `PostgreSQL` `Python`
+
+### [Cafe Sales Analysis](https://github.com/ather-ops) — Data Cleaning & EDA
+End-to-end cleaning of a 10,000-row real-world-messy dataset, followed by feature engineering, outlier detection, and EDA translating raw transactions into business insights.
+`Python` `Pandas` `NumPy` `Matplotlib`
+
+### [ML Algorithms from Mathematical Foundations](https://github.com/ather-ops)
+Linear/Logistic Regression, Random Forest, and XGBoost implemented entirely from scratch — zero Scikit-learn — validating forward/backward propagation and gradient math by hand.
+`Python` `NumPy` `Pandas`
+
+---
+
+## Tech Stack
+
 <div align="center">
 
-  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4510-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt=""/>
+![Python](https://img.shields.io/badge/Python-0f172a?style=flat-square&logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-1e293b?style=flat-square&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-1f2937?style=flat-square&logo=pandas&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-334155?style=flat-square&logo=scikit-learn&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-334155?style=flat-square&logo=postgresql&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-334155?style=flat-square&logo=mysql&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-1f2937?style=flat-square&logo=fastapi&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-334155?style=flat-square&logo=streamlit&logoColor=white)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-0f172a?style=flat-square&logo=huggingface&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1f2937?style=flat-square&logo=langchain&logoColor=white)
+![Git](https://img.shields.io/badge/Git-334155?style=flat-square&logo=git&logoColor=white)
+
+**RAG & LLM:** ChromaDB · FAISS · Gemini 2.5 Flash · SentenceTransformers · Prompt Engineering · Cosine Similarity
+**Agentic AI:** LangGraph · smolagents · ReAct Agents · Multi-Agent Orchestration
+**Also:** Neural Networks · XGBoost · Random Forest · GROQ · Gradio
 
 </div>
 
 ---
 
-## 💬 Random Dev Quote
+## Key Achievements
 
-<div align="center">
-
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Dev Quote" />
-
-</div>
+- **Amazon ML Summer School 2026** — Top 23% of 1,34,421 applicants nationwide (CV + SOP rounds), without a college degree at time of application
+- **Xpect AI shipped in 15 days** — full vector pipeline, LLM integration, FastAPI backend, live Streamlit Cloud deployment
+- **Tata Group Data Analytics Job Simulation (Forage)** — AI-powered EDA and agentic AI collections strategy design for Tata iQ Financial Services
+- Self-taught trajectory from zero ML knowledge to production RAG + agentic AI systems within months, no formal CS background
 
 ---
 
 <div align="center">
 
-  ![Profile views](https://komarev.com/ghpvc/?username=ather-ops&label=Profile%20Views&color=0e75b6&style=flat)
-  &nbsp;
-  ![Followers](https://img.shields.io/github/followers/ather-ops?label=Followers&style=social)
+### What I Bring to a Team
+
+**Production Velocity** · Shipped a full RAG system in 15 days, zero to live
+**Mathematical Depth** · ML algorithms and gradient math implemented in NumPy, no shortcuts
+**Agentic AI Focus** · Actively building LangGraph and smolagents pipelines
+**Remote Discipline** · Daily commits, written-first communication, no-supervision-required execution
+
+<br>
+
+ **peerather07@gmail.com** · Bangalore, India · Open to Remote
 
 </div>
