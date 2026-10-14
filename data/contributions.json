@@ -1,10 +1,10 @@
 {
   "user": "ather-ops",
-  "scraped": "2026-10-13T06:58:58",
+  "scraped": "2026-10-14T05:12:55",
   "first_year": "2025",
   "last_year": "2026",
-  "total": 832,
-  "current_streak": 28,
+  "total": 833,
+  "current_streak": 29,
   "longest_streak": 62,
   "days": [
     {
@@ -1839,6 +1839,11 @@
     },
     {
       "date": "2026-10-13",
+      "level": 1,
+      "count": 6
+    },
+    {
+      "date": "2026-10-14",
       "level": 0,
       "count": 0
     }
