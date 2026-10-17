@@ -22,19 +22,19 @@ ACCENT  = "#475569"
 BG      = "none"
 
 HOST    = "ather@ather-ops"
-HOST_TAG = "AI/ML Engineer"
+HOST_TAG = "ML / AI Engineer"
 
 ROWS = [
     ("Name",      "Ather Assadullah Peer"),
-    ("Role",      "AI/ML Engineer"),
-    ("Focus",     "RAG Systems  ·  Agentic AI  ·  LLM Apps"),
-    ("Stack",     "Python · LangChain · FAISS · smolagents"),
-    ("Data",      "PostgreSQL · ChromaDB · Redis · pgvector"),
-    ("Now",       "Agentic AI in production"),
-    ("Edu",       "BCA in AI/ML @ LPU (pursuing)"),
-    ("Portfolio", "vercel.app/…"),
-    ("LinkedIn",  "/in/ather-assadullah-164492301"),
-    ("X",         "@PeerAther47970"),
+    ("Role",      "ML / AI Engineer"),
+    ("Focus",     "RAG Systems  ·  Agentic AI  ·  LLMs"),
+    ("Stack",     "Python · FAISS · Groq · smolagents"),
+    ("Skills",    "RAG · Multi-tool agents · ML from scratch"),
+    ("Repos",     "14 public · 917 contributions / yr"),
+    ("LeetCode",  "100+ problems · 50 Days Badge 2026"),
+    ("Edu",       "BCA (Online) @ LPU — in progress"),
+    ("Phone",     "+91 91031-07882 (WhatsApp)"),
+    ("Email",     "peerather07@gmail.com"),
 ]
 # ------------------------------------------------------------------ /config
 
