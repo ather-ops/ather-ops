@@ -31,8 +31,8 @@ ROWS = [
     ("Stack",     "Python · FAISS · Groq · smolagents"),
     ("Skills",    "RAG · Multi-tool agents · ML from scratch"),
     ("Repos",     "14 public · 917 contributions / yr"),
-    ("LeetCode",  "100+ problems · 50 Days Badge 2026"),
-    ("Edu",       "BCA (Online) @ LPU — in progress"),
+    ("LeetCode",  "100+ problems · 50 & 100 Days Badges 2026"),
+    ("Edu",       "CSE in LPU currently"),
     ("Phone",     "+91 91031-07882 (WhatsApp)"),
     ("Email",     "peerather07@gmail.com"),
 ]
