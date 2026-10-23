@@ -32,8 +32,7 @@ ROWS = [
     ("Skills",    "RAG · Multi-tool agents · ML from scratch"),
     ("Repos",     "14 public · 917 contributions / yr"),
     ("LeetCode",  "100+ problems · 50 & 100 Days Badges 2026"),
-    ("Edu",       "CSE in LPU currently"),
-    ("Phone",     "+91 91031-07882 (WhatsApp)"),
+    ("Edu",       "CSE in AI/ML at LPU present"),
     ("Email",     "peerather07@gmail.com"),
 ]
 # ------------------------------------------------------------------ /config

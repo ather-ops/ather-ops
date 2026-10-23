@@ -7,7 +7,7 @@
 
 ### ML / AI Engineer · RAG Systems · Agentic AI · LLM Applications
 
-**CSE in LPU currently · 917 GitHub contributions in the last year · 100+ LeetCode problems**
+**CSE in AI/ML at LPU present · 917 GitHub contributions in the last year · 100+ LeetCode problems**
 
 </div>
 
@@ -68,7 +68,7 @@ Self-taught AI/ML engineer building **production RAG systems**, **multi-tool age
 
 ## Education
 
-**CSE in LPU currently**
+**CSE in AI/ML at LPU present**
 
 Self-study parallel track on agentic AI, RAG systems, and mathematical ML foundations.
 
@@ -191,6 +191,6 @@ Cleaned a dirty 10,000-transaction dataset (missing values, error placeholders, 
 
 <div align="center">
 
- **+91 91031-07882** (WhatsApp preferred) · **peerather07@gmail.com** · Bangalore, India · Open to Remote
+ **peerather07@gmail.com** · Bangalore, India · Open to Remote
 
 </div>
