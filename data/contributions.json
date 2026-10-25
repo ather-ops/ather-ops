@@ -1,47 +1,12 @@
 {
   "user": "ather-ops",
-  "scraped": "2026-10-24T04:54:14",
+  "scraped": "2026-10-25T05:05:45",
   "first_year": "2025",
   "last_year": "2026",
-  "total": 845,
-  "current_streak": 5,
+  "total": 846,
+  "current_streak": 6,
   "longest_streak": 62,
   "days": [
-    {
-      "date": "2025-10-19",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-20",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-21",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-22",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-23",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-24",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-25",
-      "level": 0,
-      "count": 0
-    },
     {
       "date": "2025-10-26",
       "level": 0,
@@ -1859,6 +1824,11 @@
     },
     {
       "date": "2026-10-24",
+      "level": 1,
+      "count": 6
+    },
+    {
+      "date": "2026-10-25",
       "level": 0,
       "count": 0
     }
