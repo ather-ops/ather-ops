@@ -27,6 +27,11 @@ PORTABILITY RULES (keep them):
 import os
 import json
 import datetime
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from svg_fx import (esc, soft_band_grad, soft_oval_grad, wave_begin,  # noqa: E402
+                    wave_values, wave_keytimes)
 
 # ------------------------------------------------------------------ config
 OUT     = "streak-graph.svg"
@@ -55,6 +60,7 @@ REVEAL_STEP = 0.0035   # seconds between each bar's reveal
 SHEEN_PERIOD = 10.0    # travelling sheen sweep period
 PULSE_PERIOD = 3.0     # glow pulse on highlighted bars
 SCAN_PERIOD = 8.0      # scanline sweep period
+WAVE_PERIOD = 5.5      # shared breathing-wave period for the bar field
 # ------------------------------------------------------------------ /config
 
 
@@ -133,29 +139,17 @@ def build():
     # ---- defs -------------------------------------------------------------
     svg.append(
         '<defs>'
-        '<linearGradient id="sheen-grad" x1="0" y1="0" x2="1" y2="0">'
-        '<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>'
-        '<stop offset="0.5" stop-color="#ffffff" stop-opacity="0.75"/>'
-        '<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>'
-        '</linearGradient>'
-        '<linearGradient id="scan-grad" x1="0" y1="0" x2="0" y2="1">'
-        '<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>'
-        '<stop offset="0.5" stop-color="#e0e7ff" stop-opacity="0.6"/>'
-        '<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>'
-        '</linearGradient>'
-        '<radialGradient id="stat-halo" cx="0.5" cy="0.5" r="0.5">'
-        '<stop offset="0" stop-color="#c7d2fe"/>'
-        '<stop offset="0.55" stop-color="#eef2ff"/>'
-        '<stop offset="1" stop-color="#ffffff"/>'
-        '</radialGradient>'
-        '</defs>'
+        + soft_band_grad("sheen-grad", "#ffffff", 0.42, "x")
+        + soft_band_grad("scan-grad", "#e0e7ff", 0.36, "y")
+        + soft_oval_grad("stat-halo", "#c7d2fe", 0.32)
+        + '</defs>'
     )
 
     # ---- header ------------------------------------------------------------
     svg.append(
-        f'<ellipse cx="{PAD_L+80}" cy="26" rx="150" ry="28" '
-        f'fill="url(#stat-halo)" opacity="0.5">'
-        f'<animate attributeName="opacity" values="0.5;0.2;0.5" '
+        f'<ellipse cx="{PAD_L+80}" cy="25" rx="180" ry="32" '
+        f'fill="url(#stat-halo)" opacity="1">'
+        f'<animate attributeName="opacity" values="1;0.5;1" '
         f'dur="{PULSE_PERIOD+1}s" repeatCount="indefinite"/>'
         f'</ellipse>'
     )
@@ -255,9 +249,13 @@ def build():
                 f'dur="{PULSE_PERIOD}s" begin="{i*step:.3f}s" repeatCount="indefinite"/>'
             )
         else:
+            # coherent travelling wave across the bar field: one shared
+            # period, begin-time derived from the bar's position
+            wb = wave_begin(i, n, WAVE_PERIOD, span=1.0)
             anim += (
-                f'<animate attributeName="opacity" values="1;0.82;1" '
-                f'dur="5.5s" begin="{i*step:.3f}s" repeatCount="indefinite"/>'
+                f'<animate attributeName="opacity" values="{wave_values(1.0, peak=0.9, dip=0.7)}" '
+                f'keyTimes="{wave_keytimes()}" dur="{WAVE_PERIOD}s" '
+                f'begin="{wb:.3f}s" repeatCount="indefinite"/>'
             )
         svg.append(f'<rect x="{x:.2f}" y="{y:.1f}" width="{bar_w:.2f}" '
                    f'height="{bh:.1f}" fill="{col}" rx="1.2">{anim}</rect>')
@@ -266,7 +264,7 @@ def build():
     sheen_w = 220
     svg.append(
         f'<rect x="{-sheen_w}" y="{PAD_T}" width="{sheen_w}" height="{plot_h:.1f}" '
-        f'fill="url(#sheen-grad)" opacity="0.35" pointer-events="none">'
+        f'fill="url(#sheen-grad)" opacity="0.28" pointer-events="none">'
         f'<animate attributeName="x" from="{-sheen_w}" to="{W}" '
         f'dur="{SHEEN_PERIOD}s" repeatCount="indefinite"/>'
         f'</rect>'
@@ -276,7 +274,7 @@ def build():
     scan_h = 120
     svg.append(
         f'<rect x="{PAD_L}" y="{-scan_h}" width="{plot_w:.1f}" height="{scan_h}" '
-        f'fill="url(#scan-grad)" opacity="0.35" pointer-events="none">'
+        f'fill="url(#scan-grad)" opacity="0.28" pointer-events="none">'
         f'<animate attributeName="y" from="{-scan_h}" to="{PAD_T+plot_h:.1f}" '
         f'dur="{SCAN_PERIOD}s" repeatCount="indefinite"/>'
         f'</rect>'

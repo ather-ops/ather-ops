@@ -22,6 +22,11 @@ import os
 import json
 import math
 import datetime
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from svg_fx import (esc, soft_band_grad, soft_oval_grad, wave_begin,  # noqa: E402
+                    wave_values, wave_keytimes)
 
 # ------------------------------------------------------------------ config
 OUT     = "contrib-heatmap.svg"
@@ -107,17 +112,9 @@ def build():
     # ---- defs -------------------------------------------------------------
     svg.append(
         '<defs>'
-        '<radialGradient id="stat-halo" cx="0.5" cy="0.5" r="0.5">'
-        '<stop offset="0" stop-color="#a5f3fc"/>'
-        '<stop offset="0.55" stop-color="#ecfeff"/>'
-        '<stop offset="1" stop-color="#ffffff"/>'
-        '</radialGradient>'
-        '<linearGradient id="scan-grad" x1="0" y1="0" x2="1" y2="0">'
-        '<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>'
-        '<stop offset="0.5" stop-color="#ffffff" stop-opacity="0.85"/>'
-        '<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>'
-        '</linearGradient>'
-        '</defs>'
+        + soft_oval_grad("stat-halo", "#a5f3fc", 0.30)
+        + soft_band_grad("scan-grad", "#ffffff", 0.34, "x")
+        + '</defs>'
     )
 
     # ---- header stats ------------------------------------------------------
@@ -127,9 +124,9 @@ def build():
 
     # pulsing halo behind the headline number
     svg.append(
-        f'<ellipse cx="{LEFT+92}" cy="27" rx="150" ry="30" '
-        f'fill="url(#stat-halo)" opacity="0.45">'
-        f'<animate attributeName="opacity" values="0.45;0.18;0.45" '
+        f'<ellipse cx="{LEFT+92}" cy="26" rx="185" ry="34" '
+        f'fill="url(#stat-halo)" opacity="1">'
+        f'<animate attributeName="opacity" values="1;0.5;1" '
         f'dur="{WAVE_PERIOD}s" repeatCount="indefinite"/>'
         f'</ellipse>'
     )
@@ -239,11 +236,13 @@ def build():
                 f'fill="{col}" opacity="{op}">'
                 f'<animate attributeName="opacity" from="0" to="{op}" '
                 f'begin="{i*step:.3f}s" dur="0.35s" fill="freeze"/>'
-                # diagonal breathing wave across the whole grid
-                f'<animate attributeName="opacity" '
-                f'values="{op};{min(1.0, float(op)+0.35)};{op}" '
+                # coherent diagonal wave: every cell shares one period and its
+                # begin-time comes from its position on the diagonal
+                f'<animate attributeName="opacity" values="{wave_values(float(op))}" '
+                f'keyTimes="{wave_keytimes()}" '
                 f'dur="{WAVE_PERIOD}s" '
-                f'begin="{(i*step) + (week+row)*0.12:.3f}s" repeatCount="indefinite"/>'
+                f'begin="{wave_begin(week + row, nweeks + 6, WAVE_PERIOD, span=1.0):.3f}s" '
+                f'repeatCount="indefinite"/>'
                 f'</rect>'
             )
         svg.append(rect)
@@ -254,7 +253,7 @@ def build():
     grid_bot = TOP + 7 * (CELL + GAP) + 6
     svg.append(
         f'<rect x="{-band_w}" y="{grid_top}" width="{band_w}" '
-        f'height="{grid_bot-grid_top}" fill="url(#scan-grad)" opacity="0.5" '
+        f'height="{grid_bot-grid_top}" fill="url(#scan-grad)" opacity="0.30" '
         f'pointer-events="none">'
         f'<animate attributeName="x" from="{-band_w}" to="{W}" '
         f'dur="{SCAN_PERIOD}s" repeatCount="indefinite"/>'

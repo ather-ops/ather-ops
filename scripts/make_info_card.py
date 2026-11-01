@@ -12,24 +12,28 @@ Animation (all SMIL, works inside <img> on GitHub):
     - staggered fade-up reveal of every row (cascade down the card)
     - travelling dashed frame border
     - blinking terminal cursor after the host tag
-    - soft glow pulse behind the title
-    - a slow vertical scanline sweeping the whole card
+    - soft pulsing halo behind the title
+    - a soft light band sweeping the card
     - hover highlight on each row
     - breathing dots beside each row
-    - corner brackets in a terminal style
+    - terminal-style corner brackets
 
-PORTABILITY RULES (learned the hard way, keep them):
-    1. Every animated element must carry its FINAL visible state in the base
-       attributes, and the <animate> only ENHANCES it. Never start at
-       opacity="0" in the base markup, or static renderers (cairosvg, image
-       previews, PDF export) show a blank card.
-    2. Never use mix-blend-mode: static renderers do not support it and
-       paint the element as an opaque block.
-    3. Text content goes INSIDE the <text> element, before any <animate>.
+FIXED (see scripts/svg_fx.py for the rules):
+    - the sweep is now a soft gradient that fades at BOTH ends, so it no
+      longer appears as a hard-edged grey rectangle
+    - the title halo is a radial wash of the SAME colour fading to
+      transparent, so it no longer paints a visible box
+    - every row shares ONE wave period and its begin-time is derived from
+      its index, so the rows pulse in a coherent sweep instead of
+      flickering independently
 
 Only the config block below should need editing.
 """
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from svg_fx import esc, soft_band_grad, soft_oval_grad, wave_begin, wave_values, wave_keytimes  # noqa: E402
 
 # ------------------------------------------------------------------ config
 OUT     = "info-card.svg"
@@ -66,12 +70,9 @@ GAP_FOOT = 26
 STAGGER      = 0.09      # seconds between each row's reveal
 ROW_FADE     = 0.45      # duration of one row's fade-up
 CYCLE        = 6.0       # frame dash travel period
-SCAN_PERIOD  = 7.0       # scanline sweep period
+SCAN_PERIOD  = 7.0       # light-band sweep period
 CURSOR_BLINK = 1.1
-
-
-def esc(s):
-    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+WAVE_PERIOD  = 5.0       # shared breathing-wave period for every row
 
 
 def build():
@@ -93,32 +94,27 @@ def build():
     # ---- defs -----------------------------------------------------------
     s.append(
         '<defs>'
-        '<radialGradient id="title-glow" cx="0.5" cy="0.5" r="0.5">'
-        '<stop offset="0" stop-color="#cbd5e1"/>'
-        '<stop offset="0.55" stop-color="#eef2f7"/>'
-        '<stop offset="1" stop-color="#ffffff"/>'
-        '</radialGradient>'
-        '<linearGradient id="frame-grad" x1="0" y1="0" x2="1" y2="1">'
-        '<stop offset="0" stop-color="#1f2937"/>'
-        '<stop offset="0.5" stop-color="#94a3b8"/>'
-        '<stop offset="1" stop-color="#1f2937"/>'
-        f'<animate attributeName="x1" values="0;1;0" dur="{CYCLE}s" repeatCount="indefinite"/>'
-        f'<animate attributeName="y1" values="0;1;0" dur="{CYCLE}s" repeatCount="indefinite"/>'
-        f'<animate attributeName="x2" values="1;0;1" dur="{CYCLE}s" repeatCount="indefinite"/>'
-        f'<animate attributeName="y2" values="1;0;1" dur="{CYCLE}s" repeatCount="indefinite"/>'
-        '</linearGradient>'
-        '</defs>'
+        + soft_oval_grad("title-halo", "#94a3b8", 0.34)
+        + soft_band_grad("sweep-grad", "#ffffff", 0.40, "y")
+        + '<linearGradient id="frame-grad" x1="0" y1="0" x2="1" y2="1">'
+          '<stop offset="0" stop-color="#1f2937"/>'
+          '<stop offset="0.5" stop-color="#94a3b8"/>'
+          '<stop offset="1" stop-color="#1f2937"/>'
+          f'<animate attributeName="x1" values="0;1;0" dur="{CYCLE}s" repeatCount="indefinite"/>'
+          f'<animate attributeName="y1" values="0;1;0" dur="{CYCLE}s" repeatCount="indefinite"/>'
+          f'<animate attributeName="x2" values="1;0;1" dur="{CYCLE}s" repeatCount="indefinite"/>'
+          f'<animate attributeName="y2" values="1;0;1" dur="{CYCLE}s" repeatCount="indefinite"/>'
+          '</linearGradient>'
+        + '</defs>'
     )
 
     s.append(f'<rect width="{W}" height="{H}" fill="{BG}"/>')
 
-    # ---- glow behind the title -------------------------------------------
-    # soft glow behind the title (ellipse, not full-card rect, so it stays a
-    # subtle wash instead of a visible block in static renderers)
+    # ---- soft halo behind the title (radial, fades to transparent) -------
     s.append(
-        f'<ellipse cx="120" cy="34" rx="210" ry="95" '
-        f'fill="url(#title-glow)" opacity="0.5">'
-        f'<animate attributeName="opacity" values="0.5;0.22;0.5" '
+        f'<ellipse cx="118" cy="32" rx="200" ry="86" '
+        f'fill="url(#title-halo)" opacity="1">'
+        f'<animate attributeName="opacity" values="1;0.45;1" '
         f'dur="{SCAN_PERIOD}s" repeatCount="indefinite"/>'
         f'</ellipse>'
     )
@@ -129,18 +125,17 @@ def build():
         f'<text x="{SIDE_PAD}" y="{head_y}" font-size="{fs+5:.1f}" '
         f'font-weight="700" fill="{GLYPH}">{esc(HOST)}'
         f'<animate attributeName="opacity" values="1;0.72;1" '
-        f'dur="{SCAN_PERIOD}s" begin="0.8s" repeatCount="indefinite"/>'
+        f'dur="{CYCLE}s" begin="0.8s" repeatCount="indefinite"/>'
         f'</text>'
     )
     if HOST_TAG:
         s.append(
             f'<text x="{SIDE_PAD}" y="{head_y + fs*1.2:.1f}" '
             f'font-size="{fs*0.58:.1f}" fill="{ACCENT}">{esc(HOST_TAG)}'
-            f'<animate attributeName="opacity" values="1;0.55;1" '
-            f'dur="{SCAN_PERIOD}s" begin="1.4s" repeatCount="indefinite"/>'
+            f'<animate attributeName="opacity" values="1;0.6;1" '
+            f'dur="{CYCLE}s" begin="1.4s" repeatCount="indefinite"/>'
             f'</text>'
         )
-        # blinking terminal cursor
         tag_w = len(HOST_TAG) * fs * 0.58 * 0.58
         s.append(
             f'<rect x="{SIDE_PAD + tag_w + 5:.1f}" '
@@ -166,7 +161,7 @@ def build():
     s.append(
         f'<line x1="{SIDE_PAD}" y1="{rule_y + 3}" x2="{W-SIDE_PAD}" '
         f'y2="{rule_y + 3}" stroke="{GLYPH}" stroke-width="0.9" opacity="0.3">'
-        f'<animate attributeName="opacity" values="0.3;0.05;0.3" '
+        f'<animate attributeName="opacity" values="0.3;0.08;0.3" '
         f'dur="{SCAN_PERIOD}s" begin="0.5s" repeatCount="indefinite"/>'
         f'</line>'
     )
@@ -190,30 +185,35 @@ def build():
             f'begin="mouseout" fill="freeze"/>'
             f'</rect>'
         )
-        # label
+        # label: gentle pulse, shared wave period -> coherent sweep
+        wv = wave_values(1.0, peak=0.86, dip=0.72)
+        wb = wave_begin(i, n, WAVE_PERIOD, span=1.0)
         s.append(
             f'<text x="{SIDE_PAD}" y="{yy:.1f}" font-size="{fs:.1f}" '
             f'fill="{ACCENT}">{esc(label)}'
-            f'<animate attributeName="opacity" values="1;0.55;1" '
-            f'dur="{ROW_FADE}s" begin="{t0:.2f}s" fill="freeze"/>'
+            f'<animate attributeName="opacity" values="{wv}" '
+            f'keyTimes="{wave_keytimes()}" dur="{WAVE_PERIOD}s" '
+            f'begin="{wb:.2f}s" repeatCount="indefinite"/>'
             f'</text>'
         )
         # value
+        wv2 = wave_values(1.0, peak=0.82, dip=0.68)
         s.append(
             f'<text x="{vx:.1f}" y="{yy:.1f}" font-size="{fs:.1f}" '
             f'fill="{GLYPH}">{esc(value)}'
-            f'<animate attributeName="opacity" values="1;0.6;1" '
-            f'dur="{ROW_FADE}s" begin="{t0+0.05:.2f}s" fill="freeze"/>'
+            f'<animate attributeName="opacity" values="{wv2}" '
+            f'keyTimes="{wave_keytimes()}" dur="{WAVE_PERIOD}s" '
+            f'begin="{wb:.2f}s" repeatCount="indefinite"/>'
             f'</text>'
         )
-        # breathing dot
+        # breathing dot, same shared wave
         s.append(
             f'<circle cx="{SIDE_PAD-13}" cy="{yy-fs*0.26:.1f}" r="1.7" '
-            f'fill="{GLYPH}" opacity="0.45">'
+            f'fill="{GLYPH}" opacity="0.5">'
             f'<animate attributeName="r" values="1.4;2.3;1.4" '
-            f'dur="2.4s" begin="{t0:.2f}s" repeatCount="indefinite"/>'
-            f'<animate attributeName="opacity" values="0.3;0.6;0.3" '
-            f'dur="2.4s" begin="{t0:.2f}s" repeatCount="indefinite"/>'
+            f'dur="{WAVE_PERIOD}s" begin="{wb:.2f}s" repeatCount="indefinite"/>'
+            f'<animate attributeName="opacity" values="0.32;0.62;0.32" '
+            f'dur="{WAVE_PERIOD}s" begin="{wb:.2f}s" repeatCount="indefinite"/>'
             f'</circle>'
         )
 
@@ -222,17 +222,17 @@ def build():
     s.append(
         f'<text x="{SIDE_PAD}" y="{foot_y:.1f}" font-size="{fs*0.72:.1f}" '
         f'fill="{ACCENT}" opacity="0.85">{esc(FOOTER)}'
-        f'<animate attributeName="opacity" values="0.85;0.45;0.85" '
+        f'<animate attributeName="opacity" values="0.85;0.55;0.85" '
         f'dur="{SCAN_PERIOD}s" begin="{0.45 + n*STAGGER + 0.4:.2f}s" '
         f'repeatCount="indefinite"/>'
         f'</text>'
     )
 
-    # ---- scanline sweep ----------------------------------------------------
-    band_h = 170
+    # ---- soft light band sweeping the card ---------------------------------
+    band_h = 210
     s.append(
         f'<rect x="0" y="{-band_h}" width="{W}" height="{band_h}" '
-        f'fill="url(#scan-band)" opacity="0.26" pointer-events="none">'
+        f'fill="url(#sweep-grad)" opacity="0.30" pointer-events="none">'
         f'<animate attributeName="y" from="{-band_h}" to="{H}" '
         f'dur="{SCAN_PERIOD}s" repeatCount="indefinite"/>'
         f'</rect>'
@@ -262,7 +262,7 @@ def build():
             f'<path d="M {cx} {cy + dy*22} L {cx} {cy} L {cx + dx*22} {cy}" '
             f'fill="none" stroke="{GLYPH}" stroke-width="2.2" '
             f'stroke-linecap="round" opacity="0.5">'
-            f'<animate attributeName="opacity" values="0.5;0.18;0.5" '
+            f'<animate attributeName="opacity" values="0.5;0.24;0.5" '
             f'dur="{SCAN_PERIOD}s" begin="1s" repeatCount="indefinite"/>'
             f'</path>'
         )

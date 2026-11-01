@@ -34,16 +34,20 @@ Only the config block below should need editing.
 import os
 import base64
 import io
+import sys
 import numpy as np
 from PIL import Image, ImageFilter
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from svg_fx import esc, soft_band_grad, soft_oval_grad  # noqa: E402
 
 # ------------------------------------------------------------------ config
 PHOTO        = "my-photo.jpg"
 OUT          = "photo-reveal.svg"
 W            = 370           # rendered width  (matches the portrait cell in README)
 H            = 460           # rendered height (matches the info card H)
-EMBED_EDGE   = 1100          # downscale embedded photo to keep SVG small
-JPEG_QUALITY = 86            # JPEG quality for embedded photo
+EMBED_EDGE   = 1200          # downscale embedded photo to keep SVG small
+JPEG_QUALITY = 92            # JPEG quality for embedded photo
 
 # Multi-stage reveal timings
 BLUR_FROM     = 20           # starting Gaussian blur radius (px)
@@ -102,14 +106,17 @@ def build():
     t_wipe_end   = REVEAL_DELAY + REVEAL_DUR
 
     # ---- clip paths -----------------------------------------------------
-    # side-wipe rect
+    # The photo is revealed by ONE wipe clip. An earlier version nested an
+    # iris clip inside the wipe clip, which made the visible region the
+    # INTERSECTION of the two - so the photo appeared only as fragments.
+    # The iris is now drawn as a glowing ring overlay instead.
     clip_rect = (
         f'<clipPath id="reveal-clip"><rect x="0" y="0" width="{W}" height="{H}">'
         f'<animate attributeName="width" from="0" to="{W}" '
         f'begin="{t_wipe_start}s" dur="{REVEAL_DUR}s" fill="freeze"/>'
         f'</rect></clipPath>'
     )
-    # iris: circle expanding from the centre of the face area
+    # soft glowing ring that expands outwards as the reveal starts
     iris_r = int(H * 0.30)
     clip_iris = (
         f'<clipPath id="iris-clip">'
@@ -142,7 +149,11 @@ def build():
     for i in range(n_sat + 1):
         t = i / n_sat
         v = SATURATE_FROM + (SATURATE_TO - SATURATE_FROM) * t
-        sat_stages.append((t * SATURATE_DUR, v))
+        # keyTimes MUST be normalised to 0..1 - the animation duration
+        # already controls the real time. Multiplying by SATURATE_DUR here
+        # produced keyTimes up to 1.1, which the browser rejects, leaving
+        # the filter frozen at saturation 0 (a greyscale photo).
+        sat_stages.append((t, v))
     sat_keyTimes = ";".join(f"{t:.3f}" for t, _ in sat_stages)
     sat_values = ";".join(sat_matrix(v) for _, v in sat_stages)
 
@@ -171,20 +182,12 @@ def build():
         f'to="{BLUR_TO}" dur="{BLUR_DUR}s" begin="0s" fill="freeze"/>'
         '</feGaussianBlur></filter>'
         # light sweep gradient (opaque stops only -> safe for static render)
-        '<linearGradient id="sweep-grad" x1="0" y1="0" x2="1" y2="0">'
-        '<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>'
-        '<stop offset="0.45" stop-color="#ffffff" stop-opacity="0.55"/>'
-        '<stop offset="0.55" stop-color="#ffffff" stop-opacity="0.55"/>'
-        '<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>'
-        '</linearGradient>'
+        + soft_band_grad("sweep-grad", "#ffffff", 0.50, "x")
         # vignette gradient
-        '<radialGradient id="vignette-grad" cx="0.5" cy="0.45" r="0.72">'
-        '<stop offset="0.45" stop-color="#000000" stop-opacity="0"/>'
-        '<stop offset="0.82" stop-color="#0f172a" stop-opacity="0.28"/>'
-        '<stop offset="1" stop-color="#0f172a" stop-opacity="0.62"/>'
-        '</radialGradient>'
+        + soft_oval_grad("vignette-grad", "#0f172a", 0.26)
+        + soft_oval_grad("backdrop-wash", "#f1f5f9", 0.75)
         # frame gradient
-        '<linearGradient id="frame-grad" x1="0" y1="0" x2="1" y2="1">'
+        + '<linearGradient id="frame-grad" x1="0" y1="0" x2="1" y2="1">'
         '<stop offset="0" stop-color="#0f172a"/>'
         '<stop offset="0.5" stop-color="#64748b"/>'
         '<stop offset="1" stop-color="#0f172a"/>'
@@ -201,14 +204,29 @@ def build():
     # white backdrop
     svg.append(f'<rect width="{W}" height="{H}" fill="#ffffff"/>')
 
+    # A soft neutral wash behind the photo so that, during the iris reveal,
+    # the area outside the iris reads as a soft studio backdrop rather than
+    # a flat white block.
+    svg.append(
+        f'<ellipse cx="{W//2}" cy="{int(H*0.42)}" rx="{int(W*0.62)}" '
+        f'ry="{int(H*0.52)}" fill="url(#backdrop-wash)" opacity="1">'
+        f'<animate attributeName="opacity" values="1;0.75;1" '
+        f'dur="{VIGNETTE_PERIOD}s" repeatCount="indefinite"/>'
+        f'</ellipse>'
+    )
+
     # ---- Layer 1: blurred start-frame (fades out as the sharp one lands) --
+    # The blurred frame is the "pre-reveal" placeholder. It must stay
+    # visible until the wipe has finished, otherwise the empty backdrop
+    # shows through the wiped area. It cross-fades out across the wipe.
     svg.append(
         f'<image x="{ox}" y="{oy}" width="{nw}" height="{nh}" '
         f'preserveAspectRatio="xMidYMid meet" '
         f'filter="url(#blur-filter)" opacity="1" '
         f'xlink:href="data:image/jpeg;base64,{blur_b64}">'
-        f'<animate attributeName="opacity" from="1" to="0" '
-        f'begin="{t_blur_end}s" dur="0.01s" fill="freeze"/>'
+        f'<animate attributeName="opacity" values="1;1;0" '
+        f'keyTimes="0;0.88;1" dur="{REVEAL_DUR + 0.35:.2f}s" '
+        f'begin="{t_wipe_start - 0.6:.2f}s" fill="freeze"/>'
         f'</image>'
     )
 
@@ -220,47 +238,57 @@ def build():
             f'xlink:href="data:image/jpeg;base64,{sharp_b64}"/>'
         )
     else:
-        # ---- Layer 2: sharp photo, iris + wipe reveal, saturation ramp ----
-        svg.append('<g clip-path="url(#iris-clip)">')
+        # ---- Layer 2: the sharp photo, revealed by the wipe --------------
+        # The photo is drawn ONCE, clipped by the wipe only. (Drawing it
+        # twice - once saturated, once plain - is what made the reveal show
+        # a grey, desaturated copy outside the iris.)
+        svg.append('<g clip-path="url(#reveal-clip)">')
         svg.append(
             f'<image x="{ox}" y="{oy}" width="{nw}" height="{nh}" '
             f'preserveAspectRatio="xMidYMid meet" '
             f'filter="url(#saturate-filter)" '
             f'xlink:href="data:image/jpeg;base64,{sharp_b64}"/>'
         )
+
+        # expanding glow ring, clipped to the revealed area so it never
+        # floats over the untouched part of the canvas
+        svg.append(
+            f'<g clip-path="url(#iris-clip)" opacity="0.55">'
+            f'<circle cx="{W//2}" cy="{int(H*0.42)}" r="{iris_r}" '
+            f'fill="none" stroke="#ffffff" stroke-width="10">'
+            f'<animate attributeName="r" from="0" to="{int(H*0.75)}" '
+            f'begin="{t_iris_start}s" dur="{IRIS_DUR}s" fill="freeze"/>'
+            f'<animate attributeName="stroke-width" values="14;2;14" '
+            f'dur="{IRIS_DUR}s" begin="{t_iris_start}s" fill="freeze"/>'
+            f'</circle></g>'
+        )
         svg.append('</g>')
 
-        svg.append('<g clip-path="url(#reveal-clip)">')
+        # ---- Layer 3: soft light sweep, sitting ABOVE the photo ----------
+        # (it used to live inside the reveal clip, so it painted over the
+        #  grey backdrop and left a hard diagonal seam across the frame)
+        sweep_w = 230
         svg.append(
-            f'<image x="{ox}" y="{oy}" width="{nw}" height="{nh}" '
-            f'preserveAspectRatio="xMidYMid meet" '
-            f'xlink:href="data:image/jpeg;base64,{sharp_b64}"/>'
-        )
-
-        # rotating light sweep across the photo
-        sweep_w = 190
-        svg.append(
-            f'<g opacity="0.55">'
-            f'<rect x="{-sweep_w}" y="0" width="{sweep_w}" height="{H}" '
-            f'fill="url(#sweep-grad)" transform="rotate(18 {W/2} {H/2})">'
+            f'<g opacity="0.30">'
+            f'<rect x="{-sweep_w}" y="-120" width="{sweep_w}" height="{H+240}" '
+            f'fill="url(#sweep-grad)" transform="rotate(16 {W/2} {H/2})">'
             f'<animate attributeName="x" from="{-sweep_w}" to="{W+sweep_w}" '
             f'dur="{SWEEP_PERIOD}s" repeatCount="indefinite"/>'
             f'</rect></g>'
         )
-        svg.append('</g>')
 
     # ---- vignette (breathing) -------------------------------------------
     svg.append(
         f'<rect x="0" y="0" width="{W}" height="{H}" '
-        f'fill="url(#vignette-grad)" opacity="0.85" pointer-events="none">'
-        f'<animate attributeName="opacity" values="0.75;1;0.75" '
+        f'fill="url(#vignette-grad)" opacity="0.45" pointer-events="none">'
+        f'<animate attributeName="opacity" values="0.38;0.55;0.38" '
         f'dur="{VIGNETTE_PERIOD}s" repeatCount="indefinite"/>'
         f'</rect>'
     )
 
     # ---- film grain: a tiled noise layer that flickers ------------------
     rng = np.random.default_rng(7)
-    noise = rng.integers(0, 255, size=(48, 48, 3), dtype=np.uint8)
+    noise = rng.integers(0, 255, size=(96, 96, 3), dtype=np.uint8)
     noise_img = Image.fromarray(noise, "RGB").resize((W, H), Image.NEAREST)
     nbuf = io.BytesIO()
     noise_img.save(nbuf, format="JPEG", quality=30)
