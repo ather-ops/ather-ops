@@ -31,42 +31,34 @@
 <!-- ABOUT ME -->
 ## About Me
 
-```python
-class AtherAssadullahPeer:
-    def __init__(self):
-        self.role = "ML / AI Engineer"
-        self.focus = ["RAG Systems", "Agentic AI", "LLM Applications"]
-        self.location = "Bangalore, India"
-        self.education = "CSE in AI/ML at LPU present"
-        self.shipping = ["Xpect AI - RAG over 8,807 Netflix titles",
-                         "Amazn AI - multi-tool agentic assistant"]
-
-    @property
-    def stack(self):
-        return {
-            "languages": ["Python (Advanced)", "C", "C++", "SQL"],
-            "data":      ["Pandas", "NumPy", "Matplotlib", "Seaborn"],
-            "ml_ai":     ["Scikit-learn", "Linear/Logistic Regression", "KNN",
-                          "Naive Bayes", "SVM", "Ridge", "Lasso",
-                          "Decision Trees", "Random Forest", "Gradient Boosting"],
-            "rag_llm":   ["FAISS", "SentenceTransformers", "Groq (LiteLLM)",
-                          "Gemini API", "ChromaDB", "Prompt Engineering",
-                          "Semantic Search"],
-            "agents":    ["smolagents CodeAgent", "Multi-tool orchestration",
-                          "Tool Calling", "ReAct"]
-        }
-
-    @property
-    def numbers(self):
-        return {
-            "contributions": "917 in the last year across 14 repositories",
-            "leetcode":      "100+ solved - Array 85, Math 30, Hash Table 24, Binary Search 24",
-            "badges":        ["50 Days Badge 2026", "100 Days Badge 2026"],
-            "ml_from_scratch": "9 algorithms in NumPy - Ridge matches Scikit-learn exactly"
-        }
-```
-
 Self-taught AI/ML engineer building **production RAG systems**, **multi-tool agentic assistants**, and **ML algorithms from mathematical first principles** — no shortcuts, no abstractions I haven't understood at the layer beneath.
+
+| | |
+|---|---|
+| **Role** | ML / AI Engineer |
+| **Focus** | RAG Systems · Agentic AI · LLM Applications |
+| **Location** | Bangalore, India — open to remote roles worldwide |
+| **Education** | CSE in AI/ML at LPU present |
+| **Currently shipping** | Xpect AI (RAG over 8,807 Netflix titles) and Amazn AI (multi-tool agentic assistant) |
+
+**Stack**
+
+| Area | Technologies |
+|---|---|
+| **Languages** | Python (Advanced), C, C++, SQL |
+| **Data** | Pandas, NumPy, Matplotlib, Seaborn |
+| **ML / AI** | Scikit-learn, Linear & Logistic Regression, KNN, Naive Bayes, SVM, Ridge, Lasso, Decision Trees, Random Forest, Gradient Boosting |
+| **RAG & LLMs** | FAISS, SentenceTransformers, Groq (LiteLLM), Gemini API, ChromaDB, Prompt Engineering, Semantic Search |
+| **Agentic AI** | smolagents CodeAgent, Multi-tool Orchestration, Tool Calling, ReAct |
+
+**By the numbers**
+
+| | |
+|---|---|
+| **GitHub** | 917 contributions in the last year across 14 repositories |
+| **LeetCode** | 100+ solved — Array 85, Math 30, Hash Table 24, Binary Search 24 |
+| **Badges** | 50 Days Badge 2026 · 100 Days Badge 2026 |
+| **ML from scratch** | 9 algorithms in NumPy — Ridge matches Scikit-learn exactly |
 
 **Project evolution:** Classical ML → SQL analytics → RAG → multi-tool agents — every stage deployed live.
 
