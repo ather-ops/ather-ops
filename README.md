@@ -1,30 +1,78 @@
-<!-- Ather Assadullah Peer (@ather-ops) — monochrome animated profile -->
-<!-- All motion lives inside self-hosted SVGs in this repo, so nothing 404s. -->
-
-# Ather Assadullah Peer
-
-<div align="center">
-
-### ML / AI Engineer · RAG Systems · Agentic AI · LLM Applications
-
-**CSE in AI/ML at LPU present · 917 GitHub contributions in the last year · 100+ LeetCode problems**
-
-</div>
-
----
+<!-- Ather Assadullah Peer (@ather-ops) — profile README -->
+<!-- Layout inspired by github.com/tysoncung, rebuilt in a monochrome slate
+     palette with no emoji. All motion is either the capsule hero (external)
+     or self-hosted SVGs in this repo, so nothing 404s. -->
 
 <div align="center">
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-1f2937?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-two-pink-24.vercel.app/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-334155?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ather-assadullah-164492301)
-[![X](https://img.shields.io/badge/X-0f172a?style=for-the-badge&logo=x&logoColor=white)](https://x.com/PeerAther47970)
-[![Email](https://img.shields.io/badge/Email-475569?style=for-the-badge&logo=gmail&logoColor=white)](mailto:peerather07@gmail.com)
-[![LeetCode](https://img.shields.io/badge/LeetCode-64748b?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/)
+<!-- HERO -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1f2937,1:334155,2:475569,3:64748b,4:94a3b8,5:cbd5e1&height=200&section=header&text=Ather%20Assadullah%20Peer&fontSize=44&fontColor=0f172a&animation=twinkling&fontAlignY=34&desc=ML%20%2F%20AI%20Engineer%20%C2%B7%20RAG%20Systems%20%C2%B7%20Agentic%20AI%20%C2%B7%20LLM%20Apps&descAlignY=56&descSize=17" width="100%"/>
+
+<!-- TYPING -->
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=21&pause=1500&color=334155&center=true&vCenter=true&width=620&lines=Building+production+RAG+systems;Building+multi-tool+agentic+AI;Writing+ML+algorithms+from+scratch;917+contributions+in+the+last+year;100%2B+LeetCode+problems+solved" alt="Typing animation" width="620"/>
+
+<br/>
+
+<!-- SOCIAL BADGES -->
+<a href="https://linkedin.com/in/ather-assadullah-164492301"><img src="https://img.shields.io/badge/LinkedIn-1f2937?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<a href="https://x.com/PeerAther47970"><img src="https://img.shields.io/badge/X-1f2937?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
+<a href="https://portfolio-two-pink-24.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-1f2937?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
+<a href="https://leetcode.com/"><img src="https://img.shields.io/badge/LeetCode-1f2937?style=for-the-badge&logo=leetcode&logoColor=white" alt="LeetCode" /></a>
+<a href="mailto:peerather07@gmail.com"><img src="https://img.shields.io/badge/Email-1f2937?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+<img src="https://img.shields.io/github/followers/ather-ops?label=Followers&style=for-the-badge&logo=github&logoColor=white&labelColor=334155&color=cbd5e1" alt="Followers" />
+<img src="https://img.shields.io/github/stars/ather-ops?label=Stars&style=for-the-badge&logo=github&logoColor=white&labelColor=334155&color=cbd5e1" alt="Stars" />
 
 </div>
 
+<br/>
+
 ---
 
+<!-- ABOUT ME -->
+## About Me
+
+```python
+class AtherAssadullahPeer:
+    def __init__(self):
+        self.role = "ML / AI Engineer"
+        self.focus = ["RAG Systems", "Agentic AI", "LLM Applications"]
+        self.location = "Bangalore, India"
+        self.education = "CSE in AI/ML at LPU present"
+        self.shipping = ["Xpect AI - RAG over 8,807 Netflix titles",
+                         "Amazn AI - multi-tool agentic assistant"]
+
+    @property
+    def stack(self):
+        return {
+            "languages": ["Python (Advanced)", "C", "C++", "SQL"],
+            "data":      ["Pandas", "NumPy", "Matplotlib", "Seaborn"],
+            "ml_ai":     ["Scikit-learn", "Linear/Logistic Regression", "KNN",
+                          "Naive Bayes", "SVM", "Ridge", "Lasso",
+                          "Decision Trees", "Random Forest", "Gradient Boosting"],
+            "rag_llm":   ["FAISS", "SentenceTransformers", "Groq (LiteLLM)",
+                          "Gemini API", "ChromaDB", "Prompt Engineering",
+                          "Semantic Search"],
+            "agents":    ["smolagents CodeAgent", "Multi-tool orchestration",
+                          "Tool Calling", "ReAct"]
+        }
+
+    @property
+    def numbers(self):
+        return {
+            "contributions": "917 in the last year across 14 repositories",
+            "leetcode":      "100+ solved - Array 85, Math 30, Hash Table 24, Binary Search 24",
+            "badges":        ["50 Days Badge 2026", "100 Days Badge 2026"],
+            "ml_from_scratch": "9 algorithms in NumPy - Ridge matches Scikit-learn exactly"
+        }
+```
+
+Self-taught AI/ML engineer building **production RAG systems**, **multi-tool agentic assistants**, and **ML algorithms from mathematical first principles** — no shortcuts, no abstractions I haven't understood at the layer beneath.
+
+**Project evolution:** Classical ML → SQL analytics → RAG → multi-tool agents — every stage deployed live.
+
+---
+
+<!-- PORTRAIT + INFO CARD -->
 <table>
  <tr>
  <td align="center" valign="top">
@@ -38,7 +86,8 @@
 
 ---
 
-## Contribution
+<!-- CONTRIBUTION GRAPH -->
+## Contribution Graph
 
 <p align="center">
  <img src="contrib-heatmap.svg" alt="Ather's contribution graph" />
@@ -50,22 +99,7 @@
 
 ---
 
-## About Me
-
-Self-taught AI/ML engineer building **production RAG systems**, **multi-tool agentic assistants**, and **ML algorithms from mathematical first principles** — no shortcuts, no abstractions I haven't understood at the layer beneath.
-
-- **Shipped two live AI apps**: [Xpect AI](https://x-ai-test.streamlit.app) (RAG, zero to deployment in 15 days; 183 commits) and [Amazn AI](https://amazn-agentic-ai.streamlit.app) (multi-tool agent).
-- **917 GitHub contributions in the last year** across 14 public repositories.
-- **100+ LeetCode problems solved** — Array 85, Math 30, Hash Table 24, Binary Search 24; earned the **50 Days and 100 Days Badges 2026**.
-- **Qualified in the top 23% of 1,34,421 applicants** for **Amazon ML Summer School 2026** (cleared CV + SOP screening; invited to the selection test).
-- Implement ML algorithms **from scratch in NumPy** — Ridge matches Scikit-learn exactly (MSE 0.4598, R² 0.9767); Titanic random forest hits **80.9% test accuracy**.
-- **Accepted to Since AI Hackathon 2026** — 72-hour in-person AI hackathon in Turku, Finland (6–8 Nov 2026).
-- Based in **Bangalore, India** — open to remote roles worldwide.
-
-**Project evolution:** Classical ML → SQL analytics → RAG → multi-tool agents — every stage deployed live.
-
----
-
+<!-- EDUCATION -->
 ## Education
 
 **CSE in AI/ML at LPU present**
@@ -74,6 +108,7 @@ Self-study parallel track on agentic AI, RAG systems, and mathematical ML founda
 
 ---
 
+<!-- WHAT I BUILD -->
 ## What I Build
 
 | Area | Details |
@@ -87,63 +122,65 @@ Self-study parallel track on agentic AI, RAG systems, and mathematical ML founda
 
 ---
 
-## Featured Projects
+<!-- PRODUCTS -->
+## My Projects
 
-### [Xpect AI](https://x-ai-test.streamlit.app) — Semantic Movie Search with RAG · `Live`
-End-to-end RAG over **8,807 Netflix titles**: 384-dimensional `all-MiniLM-L6-v2` embeddings, FAISS similarity search with **exact search (top-5 retrieval)**, a persistent vector store, and answers grounded in retrieved context. **Rebuilt the retrieval layer from scratch**, replacing ChromaDB + NLTK with FAISS and lightweight pure-Python preprocessing. **Moved the LLM layer** from Gemini 2.5 Flash to **Groq (openai/gpt-oss-20b)** for noticeably faster inference. Modular codebase (EDA notebooks, `rag_engine`, `llm` and `pipeline` modules); deployed on Streamlit Cloud. 183 commits.
-[Repo](https://github.com/ather-ops/Xpect-AI) · `Python` `FAISS` `SentenceTransformers` `Groq` `Streamlit`
+<div align="center">
 
-### [Amazn AI](https://amazn-agentic-ai.streamlit.app) — Multi-Tool Agentic Assistant · `Live`
-Built a **multi-tool agent** with smolagents: a `CodeAgent` routes each question to Product RAG, Support RAG or live order lookup, and chains tools into one answer (e.g., order status plus return policy). **Two independent RAG pipelines** with separate FAISS indexes — product search over the Amazon dataset, and support Q&A over a 134-page Amazon-style knowledge base (PyMuPDF extraction, cleaning, overlapping chunks). Live order lookup through a read-only Google Sheets tool, credentials kept in environment secrets; deployed on Streamlit Cloud.
-[Repo](https://github.com/ather-ops/Amazn-AI) · `Python` `smolagents` `FAISS` `SentenceTransformers` `Groq (LiteLLM)` `Google Sheets API` `PyMuPDF` `Streamlit`
+| | Project | Description |
+|:--:|---------|-------------|
+| A | [**Xpect AI**](https://x-ai-test.streamlit.app) | Semantic movie search with RAG over **8,807 Netflix titles** — 384-dim `all-MiniLM-L6-v2` embeddings, FAISS exact top-5 retrieval, Groq `openai/gpt-oss-20b`. Zero to deployment in 15 days, 183 commits. **Live** |
+| B | [**Amazn AI**](https://amazn-agentic-ai.streamlit.app) | Multi-tool agentic assistant — smolagents `CodeAgent` routes between Product RAG, Support RAG and live order lookup. Two independent FAISS pipelines, 134-page support KB via PyMuPDF, Google Sheets API for orders. **Live** |
+| C | [**PulseMesh**](https://pulsh-mesh.streamlit.app) | Async API intelligence engine — concurrent multi-API aggregation with `asyncio` / `aiohttp`, normalized into one Streamlit dashboard. **Live** |
+| D | [**Atlas Agent**](https://github.com/ather-ops/atlas-agent) | Autonomous assistant that reasons, plans and selects tools — date/time, system info and live weather today; RAG memory and multi-agent orchestration planned. **In development** |
+| E | [**Hospital Management SQL**](https://github.com/ather-ops/Hospital-Management-SQL) | Relational database design (patients, doctors, appointments, treatments, billing) with multi-table analytical SQL and CSV reporting. **Live** |
+| F | [**Rain Predictor App**](https://github.com/ather-ops/Rain-Predictor-App) | Rainfall classification web app — feature pipeline, trained classifier with saved scaler and model, Streamlit interface. **Code** |
+| G | [**Customer Churn Predictor**](https://github.com/ather-ops/Customer-churn-predictor) | Customer retention classifier so churn action can be targeted at the right accounts. **Code** |
+| H | [**ML Algorithms from Scratch**](https://github.com/ather-ops/Supervised-ML-from-scratch) | Nine algorithms in NumPy — Ridge matches Scikit-learn exactly (MSE 0.4598, R² 0.9767); Titanic random forest at **80.9%** test accuracy. **Code** |
+| I | [**Cafe Sales Analysis**](https://github.com/ather-ops/Supervised-ML-from-scratch) | Cleaned 10,000 transactions, IQR removal and capping, then EDA: Salad led revenue, weekdays **Rs 64,897** vs weekends 24,346, ~40% had no location. **Code** |
 
-### [PulseMesh](https://pulsh-mesh.streamlit.app) — Async API Intelligence Engine · `Live`
-Concurrent data-aggregation engine that fans out across multiple real-world APIs in parallel, normalizes the responses, and surfaces structured intelligence in a single Streamlit dashboard. Built around `asyncio`, `aiohttp`, and a clean ETL core.
-[Repo](https://github.com/ather-ops/pulsemesh) · `Python` `asyncio` `aiohttp` `Streamlit` `Pandas`
-
-### [Atlas Agent](https://github.com/ather-ops/atlas-agent) — Autonomous AI Assistant · `in development`
-Agent built on smolagents that **reasons, plans and selects tools**. Working tools today are date/time, system info and live weather. RAG memory and multi-agent orchestration are planned next.
-`Python` `smolagents` `HF Inference API` `Gradio` `OpenWeather API`
-
-### [Hospital Management SQL](https://github.com/ather-ops/Hospital-Management-SQL) — Database Engineering · `Live`
-Designed a **relational database** (patients, doctors, appointments, treatments, billing) and wrote multi-table analytical SQL (joins, aggregations, grouping) for questions such as top-spending patients, doctor performance and treatment revenue, with CSV reports.
-`SQL` `SQLite` `CSV reporting`
-
-### [Rain Predictor App](https://github.com/ather-ops/Rain-Predictor-App) — Rainfall Classification · `Code`
-ML web app that predicts whether it will rain tomorrow from today's weather conditions — feature pipeline, trained classifier (with saved scaler, label encoder and model), and a Streamlit interface for predictions.
-[Repo](https://github.com/ather-ops/Rain-Predictor-App) · `Python` `scikit-learn` `Streamlit`
-
-### [Customer Churn Predictor](https://github.com/ather-ops/Customer-churn-predictor) — Customer Retention · `Code`
-Classification model that predicts which customers are likely to churn, so retention action can be targeted at the right accounts — trained pipeline with saved scaler and model, served through a Streamlit interface.
-[Repo](https://github.com/ather-ops/Customer-churn-predictor) · `Python` `scikit-learn`
-
-### [ML Algorithms from Scratch](https://github.com/ather-ops/Supervised-ML-from-scratch) · `Code`
-Implemented **linear and logistic regression, KNN, Naive Bayes, SVM, Ridge, Lasso, decision tree and random forest** from scratch in NumPy, Pandas and Matplotlib. **Ridge matches Scikit-learn exactly (MSE 0.4598, R² 0.9767)**; **Titanic random forest: 80.9% test accuracy**.
-[From scratch](https://github.com/ather-ops/Supervised-ML-from-scratch) · [Trees & ensembles](https://github.com/ather-ops/decision-trees-forest) · [Scikit-learn workflows](https://github.com/ather-ops/Supervised-ML-with-Scikit-Learn)
-`Python` `NumPy` `Pandas` `Matplotlib` `Scikit-learn`
-
-### [Cafe Sales Analysis](https://github.com/ather-ops/Supervised-ML-from-scratch) — Data Cleaning and EDA · `Code`
-Cleaned a dirty 10,000-transaction dataset (missing values, error placeholders, type fixes), engineered day, item, price and size categories, and treated outliers with **IQR removal and capping**. EDA across items, locations, payments and time: **Salad led revenue despite Juice selling more**, weekdays out-earned weekends (**Rs 64,897 vs 24,346**), and **~40% of sales had no location recorded**.
-`Python` `Pandas` `NumPy` `Matplotlib` `Seaborn`
+</div>
 
 ---
 
+<!-- TECH STACK -->
 ## Tech Stack
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-0f172a?style=flat-square&logo=python&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-1e293b?style=flat-square&logo=numpy&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-1f2937?style=flat-square&logo=pandas&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-3F4F75?style=flat-square&logo=python&logoColor=white)
-![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=flat-square&logo=python&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-334155?style=flat-square&logo=scikit-learn&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-334155?style=flat-square&logo=mysql&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-1f2937?style=flat-square&logo=fastapi&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-334155?style=flat-square&logo=streamlit&logoColor=white)
-![HuggingFace](https://img.shields.io/badge/HuggingFace-0f172a?style=flat-square&logo=huggingface&logoColor=white)
-![Git](https://img.shields.io/badge/Git-334155?style=flat-square&logo=git&logoColor=white)
+### Languages
+![Python](https://img.shields.io/badge/Python-1f2937?style=for-the-badge&logo=python&logoColor=white)
+![C](https://img.shields.io/badge/C-334155?style=for-the-badge&logo=c&logoColor=white)
+![C++](https://img.shields.io/badge/C++-334155?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-1f2937?style=for-the-badge&logo=mysql&logoColor=white)
+
+### Data & Visualization
+![Pandas](https://img.shields.io/badge/Pandas-1f2937?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-334155?style=for-the-badge&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-334155?style=for-the-badge&logo=python&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-475569?style=for-the-badge&logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-334155?style=for-the-badge&logo=sqlite&logoColor=white)
+
+### ML / AI
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1f2937?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![FAISS](https://img.shields.io/badge/FAISS-334155?style=for-the-badge&logo=faiss&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-334155?style=for-the-badge&logo=groq&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-475569?style=for-the-badge&logo=pytorch&logoColor=white)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-1f2937?style=for-the-badge&logo=huggingface&logoColor=white)
+
+### Agentic AI & RAG
+![smolagents](https://img.shields.io/badge/smolagents-1f2937?style=for-the-badge&logo=huggingface&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-334155?style=for-the-badge&logo=langchain&logoColor=white)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-475569?style=for-the-badge&logo=chroma&logoColor=white)
+![SentenceTransformers](https://img.shields.io/badge/SentenceTransformers-334155?style=for-the-badge&logo=huggingface&logoColor=white)
+
+### Tools & Deployment
+![Streamlit](https://img.shields.io/badge/Streamlit-1f2937?style=for-the-badge&logo=streamlit&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-334155?style=for-the-badge&logo=fastapi&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-1f2937?style=for-the-badge&logo=vercel&logoColor=white)
+![Git](https://img.shields.io/badge/Git-334155?style=for-the-badge&logo=git&logoColor=white)
+
+</div>
 
 **Languages:** Python (Advanced), C, C++, SQL
 **Data Analysis:** Pandas, NumPy, Matplotlib, Seaborn, EDA, data cleaning, feature engineering
@@ -152,23 +189,28 @@ Cleaned a dirty 10,000-transaction dataset (missing values, error placeholders, 
 **Agentic AI:** smolagents (CodeAgent), multi-tool orchestration, tool calling, ReAct agents; LangGraph (learning)
 **Tools & Cloud:** Streamlit Cloud, HuggingFace Spaces, Vercel, Git/GitHub, Google Sheets API (gspread), PyMuPDF; FastAPI and AWS (learning)
 
+---
+
+<!-- ACHIEVEMENTS -->
+## Key Achievements
+
+<div align="center">
+
+| | Achievement | Detail |
+|:--:|-------------|--------|
+| A | **Amazon ML Summer School 2026** | Top **23%** of 1,34,421 applicants nationwide. Cleared CV + SOP screening; invited to the selection test. |
+| B | **Since AI Hackathon 2026** | Accepted to a 72-hour in-person AI hackathon in Turku, Finland (6–8 Nov 2026) with 15 company challenges. |
+| C | **Tata Group GenAI Job Simulation** | GenAI Powered Data Analytics — EDA and risk profiling, delinquency prediction, business storytelling, AI-driven collections strategy. |
+| D | **100+ LeetCode Problems** | Array 85, Math 30, Hash Table 24, Binary Search 24. Earned the **50 Days** and **100 Days Badges 2026**. |
+| E | **Two Production AI Apps** | Xpect AI (RAG, zero to deployment in 15 days; 183 commits) and Amazn AI (multi-tool agent) — both live. |
+| F | **917 Contributions in a Year** | Across 14 public repositories, maintained alongside the CSE program. |
+| G | **Nine ML Algorithms from Scratch** | Ridge matching Scikit-learn exactly (MSE 0.4598, R² 0.9767) and a Titanic random forest at 80.9% test accuracy. |
+
 </div>
 
 ---
 
-## Key Achievements
-
-- **Amazon ML Summer School 2026** — Top 23% of 1,34,421 applicants nationwide (cleared CV + SOP screening; invited to the selection test — quiz and coding round).
-- **Since AI Hackathon 2026** — Accepted to a 72-hour in-person AI hackathon in Turku, Finland (6–8 Nov 2026) with 15 company challenges.
-- **GenAI Powered Data Analytics Job Simulation — Tata Group (via Forage)** — EDA and risk profiling, delinquency prediction with AI, business storytelling, and an AI-driven collections strategy.
-- **100+ LeetCode problems solved** — Array 85, Math 30, Hash Table 24, Binary Search 24; earned the **50 Days and 100 Days Badges 2026**.
-- **Two production AI apps live** — Xpect AI (RAG, zero to deployment in 15 days; 183 commits) and Amazn AI (multi-tool agent).
-- **917 GitHub contributions in the last year** across 14 public repositories.
-- **Nine ML algorithms from scratch** — Ridge matching Scikit-learn exactly (MSE 0.4598, R² 0.9767) and a Titanic random forest at 80.9% test accuracy.
-- Self-taught trajectory from zero ML knowledge to production RAG + multi-tool agentic systems within months, built alongside the CSE program.
-
----
-
+<!-- COURSES -->
 ## Relevant Courses & Learning
 
 - **Google ML Crash Course** — neural networks, embeddings, LLMs, RAG (ongoing)
@@ -180,12 +222,15 @@ Cleaned a dirty 10,000-transaction dataset (missing values, error placeholders, 
 
 ---
 
+<!-- WHAT I BRING -->
 ## What I Bring to a Team
 
-**Production Velocity** · Shipped Xpect AI (RAG) and Amazn AI (multi-tool agent), zero to live
-**Mathematical Depth** · Nine ML algorithms implemented in NumPy, validated line-by-line against Scikit-learn
-**Agentic AI Focus** · smolagents CodeAgent, multi-tool orchestration, RAG memory in progress
-**Remote Discipline** · Daily commits, written-first communication, no-supervision-required execution
+**Production Velocity** — Shipped Xpect AI (RAG) and Amazn AI (multi-tool agent), zero to live
+**Mathematical Depth** — Nine ML algorithms implemented in NumPy, validated line-by-line against Scikit-learn
+**Agentic AI Focus** — smolagents CodeAgent, multi-tool orchestration, RAG memory in progress
+**Remote Discipline** — Daily commits, written-first communication, no-supervision-required execution
+
+---
 
 <br/>
 
