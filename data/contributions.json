@@ -1,9 +1,9 @@
 {
   "user": "ather-ops",
-  "scraped": "2026-11-17T08:18:20",
+  "scraped": "2026-11-18T07:50:09",
   "first_year": "2025",
   "last_year": "2026",
-  "total": 895,
+  "total": 892,
   "current_streak": 3,
   "longest_streak": 62,
   "days": [
@@ -1739,8 +1739,8 @@
     },
     {
       "date": "2026-10-28",
-      "level": 1,
-      "count": 6
+      "level": 0,
+      "count": 0
     },
     {
       "date": "2026-10-29",
@@ -1841,6 +1841,11 @@
       "date": "2026-11-17",
       "level": 1,
       "count": 6
+    },
+    {
+      "date": "2026-11-18",
+      "level": 0,
+      "count": 0
     }
   ]
 }
