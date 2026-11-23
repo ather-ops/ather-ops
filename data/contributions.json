@@ -1,6 +1,6 @@
 {
   "user": "ather-ops",
-  "scraped": "2026-11-22T07:16:45",
+  "scraped": "2026-11-23T07:59:54",
   "first_year": "2025",
   "last_year": "2026",
   "total": 895,
@@ -1829,6 +1829,11 @@
     },
     {
       "date": "2026-11-22",
+      "level": 0,
+      "count": 0
+    },
+    {
+      "date": "2026-11-23",
       "level": 0,
       "count": 0
     }
